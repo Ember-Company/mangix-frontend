@@ -7,3 +7,8 @@ export class Storage {
     return JSON.parse(localStorage.getItem("nome"));
   }
 }
+
+// chave: valor
+// nome: 'Daniel'
+
+// const nome = Storage.buscar();
