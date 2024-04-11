@@ -1,0 +1,64 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Create",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-01"
+    },
+    {
+      "id": 2,
+      "name": "Read",
+      "assigned_to": ["Admin", "Manager", "Users", "Support", "Restricted"],
+      "created_date": "2021-07-02"
+    },
+    {
+      "id": 3,
+      "name": "Update",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-03"
+    },
+    {
+      "id": 4,
+      "name": "Delete",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-04"
+    },
+    {
+      "id": 5,
+      "name": "Approve",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-05"
+    },
+    {
+      "id": 6,
+      "name": "Reject",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-06"
+    },
+    {
+      "id": 7,
+      "name": "View",
+      "assigned_to": ["Admin", "Manager", "Users", "Support", "Restricted"],
+      "created_date": "2021-07-07"
+    },
+    {
+      "id": 8,
+      "name": "Edit",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-08"
+    },
+    {
+      "id": 9,
+      "name": "Manage",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-09"
+    },
+    {
+      "id": 10,
+      "name": "Configure",
+      "assigned_to": ["Admin", "Manager", "Users"],
+      "created_date": "2021-07-10"
+    }
+  ]
+}
