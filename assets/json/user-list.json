@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "full_name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "role": "Admin",
+      "current_plan": "Pro",
+      "billing": "$100",
+      "status": 2,
+      "avatar": "1.png"
+    },
+    {
+      "full_name": "Jane Doe",
+      "email": "janedoe@gmail.com",
+      "role": "Editor",
+      "current_plan": "Basic",
+      "billing": "$50",
+      "status": 1,
+      "avatar": "2.png"
+    },
+    {
+      "full_name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "role": "Maintainer",
+      "current_plan": "Pro",
+      "billing": "$100",
+      "status": 3,
+      "avatar": "3.png"
+    }
+  ]
+}
