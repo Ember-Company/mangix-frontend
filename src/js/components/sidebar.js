@@ -1,4 +1,4 @@
-import { sidebarMapConfig } from "../config/sidebar-config";
+import { sidebarMapConfig } from "../config/sidebar-config.js";
 
 export default class Sidebar {
   constructor() {
