@@ -5,7 +5,7 @@ export default class Sidebar {
     this.config = sidebarMapConfig[import.meta.env.VITE_APP_LAYOUT];
     this.sidebar = document.querySelector(".menu-inner");
 
-    this.activeId = this.sidebar.id;
+    this.activeId = this.sidebar.dataset.id;
     this.renderSidebar();
   }
 
@@ -20,7 +20,9 @@ export default class Sidebar {
   }
 
   renderItem({ id, title, icon, path, header }, active = false) {
+    console.log(this.activeId);
     const elemIsActive = active || this.isActive(id);
+    console.log(elemIsActive);
 
     if (header) {
       return `
