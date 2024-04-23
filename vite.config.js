@@ -19,6 +19,7 @@ export default defineConfig({
         users: "/app/users/",
         accessPermissions: "/app/access/permissions/",
         accessRoles: "/app/access/roles/",
+        login: "/app/login/",
       },
     },
   },

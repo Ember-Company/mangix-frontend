@@ -36,6 +36,12 @@ const main_routes = [
     icon: '<i class="menu-icon tf-icons bx bxs-user-account"></i>',
     path: toPage("users/pages-account-settings-account.html"),
   },
+  {
+    id: 5,
+    title: "Login",
+    icon: '<i class="menu-icon tf-icons bx bxs-user-account"></i>',
+    path: toPage("login/"),
+  },
 ];
 
 export const sidebarMapConfig = {
