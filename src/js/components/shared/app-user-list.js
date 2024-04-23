@@ -30,7 +30,7 @@ $(function () {
 
   if (datatablesUsers.length) {
     const dataTable = datatablesUsers.DataTable({
-      ajax: assetsPath + "json/user-list.json",
+      ajax: assetsPath + "/js/utils/json/user-list.json",
       columns: [
         { data: "" },
         { data: "full_name" },
@@ -60,7 +60,7 @@ $(function () {
             const avatar = row.avatar;
             let avatarHtml = "";
             if (avatar) {
-              avatarHtml = `<img src="${assetsPath}img/avatars/${avatar}" alt="Avatar" class="rounded-circle">`;
+              avatarHtml = `<img src="${assetsPath}/assets/img/avatars/${avatar}" alt="Avatar" class="rounded-circle">`;
             } else {
               const initials = (fullName.match(/\b\w/g) || []).shift() || "";
               avatarHtml = `<span class="avatar-initial rounded-circle bg-label-${
