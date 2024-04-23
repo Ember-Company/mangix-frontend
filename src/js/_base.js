@@ -1,6 +1,6 @@
 import Sidebar from "./components/sidebar.js";
 
-function init() {
+export function init() {
   // initilize all components
   new Sidebar();
 }

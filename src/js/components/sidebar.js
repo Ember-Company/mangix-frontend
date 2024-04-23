@@ -1,3 +1,4 @@
+import { loadPage } from "../utils/route-builder.js";
 import { sidebarMapConfig } from "../config/sidebar-config.js";
 
 export default class Sidebar {
@@ -7,11 +8,28 @@ export default class Sidebar {
 
     this.activeId = this.sidebar.dataset.id;
     this.renderSidebar();
+
+    this.handleNavigation();
+  }
+
+  handleNavigation() {
+    this.sidebar.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = e.target.closest("a");
+
+      if (target) {
+        const path = target.getAttribute("href");
+
+        if (path) {
+          loadPage(path);
+        }
+      }
+    });
   }
 
   renderSidebar() {
     this.sidebar.innerHTML = this.config
-      .map((route, index) => {
+      .map((route, _) => {
         return route?.submenus !== undefined
           ? this.renderDropdown(route)
           : this.renderItem(route);
@@ -20,9 +38,7 @@ export default class Sidebar {
   }
 
   renderItem({ id, title, icon, path, header }, active = false) {
-    console.log(this.activeId);
     const elemIsActive = active || this.isActive(id);
-    console.log(elemIsActive);
 
     if (header) {
       return `
