@@ -4,3 +4,4 @@
 
 - Danniell Kruger
 - Nathan Grima
+- Zainab Damani
