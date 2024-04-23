@@ -21,7 +21,7 @@ export default class Sidebar {
         const path = target.getAttribute("href");
 
         if (path) {
-          loadPage(path);
+          window.location.assign(path);
         }
       }
     });

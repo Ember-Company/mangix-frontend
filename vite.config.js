@@ -5,8 +5,8 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        home: "./index.html",
-        users: "./src/pages/users-list/users.html",
+        home: "/index.html",
+        users: "/app/users-list/users.html",
       },
     },
   },

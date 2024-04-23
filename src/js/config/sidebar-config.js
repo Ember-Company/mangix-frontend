@@ -5,13 +5,13 @@ const main_routes = [
     id: 1,
     title: "Dashboard",
     icon: '<i class="menu-icon tf-icons bx bx-home-circle"></i>',
-    path: toPage("home.html"),
+    path: `${import.meta.env.VITE_APP_BASE_PREFIX}/index.html`,
   },
   {
     id: 2,
     title: "Users",
     icon: '<i class="menu-icon tf-icons bx bx-user"></i>',
-    path: "users-list",
+    path: toPage("users/index.html"),
   },
   {
     id: 3,
