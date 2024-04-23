@@ -5,13 +5,13 @@ const main_routes = [
     id: 1,
     title: "Dashboard",
     icon: '<i class="menu-icon tf-icons bx bx-home-circle"></i>',
-    path: `${import.meta.env.VITE_APP_BASE_PREFIX}/index.html`,
+    path: `${import.meta.env.VITE_APP_BASE_PREFIX}`,
   },
   {
     id: 2,
     title: "Users",
     icon: '<i class="menu-icon tf-icons bx bx-user"></i>',
-    path: toPage("users/index.html"),
+    path: toPage("users/"),
   },
   {
     id: 3,
@@ -21,12 +21,12 @@ const main_routes = [
       {
         id: 1,
         title: "Roles",
-        path: toPage("access/app-access-roles.html"),
+        path: toPage("access/roles/"),
       },
       {
         id: 2,
         title: "Permissions",
-        path: toPage("access/app-access-permission.html"),
+        path: toPage("access/permissions/"),
       },
     ],
   },

@@ -3,11 +3,11 @@
 $(function () {
   var dataTable,
     permissionsTable = $(".datatables-permissions"),
-    userDetailsPage = "app-user-list.html";
+    userDetailsPage = "/app/users/index.html";
 
   if (permissionsTable.length) {
     dataTable = permissionsTable.DataTable({
-      ajax: assetsPath + "json/permissions-list.json",
+      ajax: assetsPath + "/js/utils/json/permissions-list.json",
       columns: [
         { data: "" },
         { data: "id" },

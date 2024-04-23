@@ -1215,9 +1215,7 @@
                       var S = this.container.querySelector(
                           ".template-customizer-headerOptions"
                         ),
-                        x = document.documentElement
-                          .getAttribute("data-template")
-                          .split("-");
+                        x = "vertical-menu-template".split("-");
                       if (this._hasControls("headerType")) {
                         var w = S.querySelector(
                           ".template-customizer-header-options"
@@ -1592,9 +1590,7 @@
                 {
                   key: "_getLayoutName",
                   value: function () {
-                    return document
-                      .getElementsByTagName("HTML")[0]
-                      .getAttribute("data-template");
+                    return "vertical-menu-template";
                   },
                 },
                 {
