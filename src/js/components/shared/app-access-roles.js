@@ -11,7 +11,7 @@ $(function () {
 
   if (usersTable.length) {
     usersTable.DataTable({
-      ajax: assetsPath + "json/user-list.json",
+      ajax: assetsPath + "/js/utils/json/user-list.json",
       columns: [
         { data: "" },
         { data: "full_name" },
@@ -43,7 +43,7 @@ $(function () {
             var avatarHtml = avatar
               ? '<img src="' +
                 assetsPath +
-                "img/avatars/" +
+                "/assets/img/avatars/" +
                 avatar +
                 '" alt="Avatar" class="rounded-circle">'
               : '<span class="avatar-initial rounded-circle bg-label-' +
