@@ -15,11 +15,11 @@ export default defineConfig({
     outDir: "dist",
     rollupOptions: {
       input: {
-        home: "/index.html",
+        home: "/",
         users: "/app/users/",
         accessPermissions: "/app/access/permissions/",
         accessRoles: "/app/access/roles/",
-        login: "/app/login/",
+        demoPage: "/app/demo-page/",
       },
     },
   },

@@ -5,7 +5,7 @@
   class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../../assets"
+  data-assets-path="/src"
 >
   <head>
     <meta charset="utf-8" />
@@ -20,57 +20,39 @@
     <meta name="keywords" content="" />
 
     <!-- Icons -->
-    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome.css" />
-    <link rel="stylesheet" href="../../assets/vendor/fonts/flag-icons.css" />
+    <link rel="stylesheet" href="/src/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/src/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/src/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/css/rtl/core.css"
-      class="template-customizer-core-css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/css/rtl/theme-default.css"
-      class="template-customizer-theme-css"
-    />
-    <link rel="stylesheet" href="../../assets/css/demo.css" />
+    <link rel="stylesheet" href="/src/vendor/css/rtl/core.css" />
+    <link rel="stylesheet" href="/src/vendor/css/rtl/theme-default.css" />
+    <link rel="stylesheet" href="/src/css/demo.css" />
 
     <!-- Vendors CSS -->
     <link
       rel="stylesheet"
-      href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+      href="/src/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
     />
+    <link rel="stylesheet" href="/src/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="/src/vendor/libs/select2/select2.css" />
     <link
       rel="stylesheet"
-      href="../../assets/vendor/libs/typeahead-js/typeahead.css"
+      href="/src/vendor/libs/@form-validation/umd/styles/index.min.css"
     />
+    <link rel="stylesheet" href="/src/vendor/libs/animate-css/animate.css" />
     <link
       rel="stylesheet"
-      href="../../assets/vendor/libs/select2/select2.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/%40form-validation/umd/styles/index.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/animate-css/animate.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../../assets/vendor/libs/sweetalert2/sweetalert2.css"
+      href="/src/vendor/libs/sweetalert2/sweetalert2.css"
     />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="../../assets/vendor/js/helpers.js"></script>
+    <script src="/src/vendor/js/helpers.js"></script>
 
-    <script src="../../assets/vendor/js/template-customizer.js"></script>
-    <script src="../../assets/js/config.js"></script>
-    <script src="../../src/js/_base.js" defer></script>
+    <script src="/src/js/config/theme-config.js"></script>
+    <script src="/src/js/_base.js" type="module"></script>
   </head>
 
   <body>
@@ -427,7 +409,7 @@
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
                                 <img
-                                  src="../../assets/img/avatars/1.png"
+                                  src="/src/assets/img/avatars/1.png"
                                   alt
                                   class="w-px-40 h-auto rounded-circle"
                                 />
@@ -496,7 +478,7 @@
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
                                 <img
-                                  src="../../assets/img/avatars/2.png"
+                                  src="/src/assets/img/avatars/2.png"
                                   alt
                                   class="w-px-40 h-auto rounded-circle"
                                 />
@@ -567,7 +549,7 @@
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
                                 <img
-                                  src="../../assets/img/avatars/9.png"
+                                  src="/src/assets/img/avatars/9.png"
                                   alt
                                   class="w-px-40 h-auto rounded-circle"
                                 />
@@ -640,7 +622,7 @@
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
                                 <img
-                                  src="../../assets/img/avatars/5.png"
+                                  src="/src/assets/img/avatars/5.png"
                                   alt
                                   class="w-px-40 h-auto rounded-circle"
                                 />
@@ -676,7 +658,7 @@
                             <div class="flex-shrink-0 me-3">
                               <div class="avatar">
                                 <img
-                                  src="../../assets/img/avatars/6.png"
+                                  src="/src/assets/img/avatars/6.png"
                                   alt
                                   class="w-px-40 h-auto rounded-circle"
                                 />
@@ -759,7 +741,7 @@
                   >
                     <div class="avatar avatar-online">
                       <img
-                        src="../../assets/img/avatars/1.png"
+                        src="/src/assets/img/avatars/1.png"
                         alt
                         class="w-px-40 h-auto rounded-circle"
                       />
@@ -775,7 +757,7 @@
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
                               <img
-                                src="../../assets/img/avatars/1.png"
+                                src="/src/assets/img/avatars/1.png"
                                 alt
                                 class="w-px-40 h-auto rounded-circle"
                               />
@@ -924,7 +906,7 @@
                         class="d-flex align-items-start align-items-sm-center gap-4"
                       >
                         <img
-                          src="../../assets/img/avatars/1.png"
+                          src="/src/assets/img/avatars/1.png"
                           alt="user-avatar"
                           class="d-block rounded"
                           height="100"
@@ -1246,53 +1228,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div
-                class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column"
-              >
-                <div class="mb-2 mb-md-0">
-                  ©
-                  <script>
-                    document.write(new Date().getFullYear());
-                  </script>
-                  , made with ❤️ by
-                  <a
-                    href="../../../../themeselection.com/index.html"
-                    target="_blank"
-                    class="footer-link fw-medium"
-                    >ThemeSelection</a
-                  >
-                </div>
-                <div class="d-none d-lg-inline-block">
-                  <a
-                    href="https://themeselection.com/license/"
-                    class="footer-link me-4"
-                    target="_blank"
-                    >License</a
-                  >
-                  <a
-                    href="../../../../themeselection.com/index.html"
-                    target="_blank"
-                    class="footer-link me-4"
-                    >More Themes</a
-                  >
-
-                  <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
-                    target="_blank"
-                    class="footer-link me-4"
-                    >Documentation</a
-                  >
-
-                  <a
-                    href="https://themeselection.com/support/"
-                    target="_blank"
-                    class="footer-link d-none d-sm-inline-block"
-                    >Support</a
-                  >
-                </div>
-              </div>
-            </footer>
+            <footer class="content-footer footer bg-footer-theme"></footer>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -1312,30 +1248,30 @@
 
     <!-- Core JS -->
 
-    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../../assets/vendor/js/bootstrap.js"></script>
-    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../../assets/vendor/libs/hammer/hammer.js"></script>
-    <script src="../../assets/vendor/libs/i18n/i18n.js"></script>
-    <script src="../../assets/vendor/libs/typeahead-js/typeahead.js"></script>
-    <script src="../../assets/vendor/js/menu.js"></script>
+    <script src="/src/vendor/libs/jquery/jquery.js"></script>
+    <script src="/src/vendor/libs/popper/popper.js"></script>
+    <script src="/src/vendor/js/bootstrap.js"></script>
+    <script src="/src/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/src/vendor/libs/hammer/hammer.js"></script>
+    <script src="/src/vendor/libs/i18n/i18n.js"></script>
+    <script src="/src/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="/src/vendor/js/menu.js"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="../../assets/vendor/libs/select2/select2.js"></script>
-    <script src="../../assets/vendor/libs/%40form-validation/umd/bundle/popular.min.js"></script>
-    <script src="../../assets/vendor/libs/%40form-validation/umd/plugin-bootstrap5/index.min.js"></script>
-    <script src="../../assets/vendor/libs/%40form-validation/umd/plugin-auto-focus/index.min.js"></script>
-    <script src="../../assets/vendor/libs/cleavejs/cleave.js"></script>
-    <script src="../../assets/vendor/libs/cleavejs/cleave-phone.js"></script>
-    <script src="../../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+    <script src="/src/vendor/libs/select2/select2.js"></script>
+    <script src="/src/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
+    <script src="/src/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+    <script src="/src/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
+    <script src="/src/vendor/libs/cleavejs/cleave.js"></script>
+    <script src="/src/vendor/libs/cleavejs/cleave-phone.js"></script>
+    <script src="/src/vendor/libs/sweetalert2/sweetalert2.js"></script>
 
     <!-- Main JS -->
-    <script src="../../assets/js/main.js"></script>
+    <script src="/src/js/main.js"></script>
 
     <!-- Page JS -->
-    <script src="../../assets/js/pages-account-settings-account.js"></script>
+    <script src="/src/js/components/shared/pages-account-settings-account.js"></script>
   </body>
 </html>

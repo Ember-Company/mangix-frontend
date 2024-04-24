@@ -34,13 +34,13 @@ const main_routes = [
     id: 4,
     title: "Account",
     icon: '<i class="menu-icon tf-icons bx bxs-user-account"></i>',
-    path: toPage("users/pages-account-settings-account.html"),
+    path: toPage("account-settings/"),
   },
   {
     id: 5,
-    title: "Login",
-    icon: '<i class="menu-icon tf-icons bx bxs-user-account"></i>',
-    path: toPage("login/"),
+    title: "Pagina Demo",
+    icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
+    path: toPage("demo-page/"),
   },
 ];
 
