@@ -3,13 +3,11 @@ import { sidebarMapConfig } from "../config/sidebar-config.js";
 
 export default class Sidebar {
   constructor() {
-    this.config = sidebarMapConfig[import.meta.env.VITE_APP_LAYOUT];
+    this.routes = sidebarMapConfig[import.meta.env.VITE_APP_LAYOUT];
     this.sidebar = document.querySelector(".menu-inner");
 
     this.activeId = this.sidebar.dataset.id;
-    this.renderSidebar();
-
-    this.handleNavigation();
+    this.renderSidebar().handleNavigation();
   }
 
   handleNavigation() {
@@ -20,21 +18,21 @@ export default class Sidebar {
       if (target) {
         const path = target.getAttribute("href");
 
-        if (path) {
-          window.location.assign(path);
-        }
+        path && window.location.assign(path);
       }
     });
   }
 
   renderSidebar() {
-    this.sidebar.innerHTML = this.config
+    this.sidebar.innerHTML = this.routes
       .map((route, _) => {
         return route?.submenus !== undefined
           ? this.renderDropdown(route)
           : this.renderItem(route);
       })
       .join("");
+
+    return this;
   }
 
   renderItem({ id, title, icon, path, header }, active = false) {
