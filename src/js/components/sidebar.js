@@ -1,28 +1,42 @@
+import { loadPage } from "../utils/route-builder.js";
 import { sidebarMapConfig } from "../config/sidebar-config.js";
 
 export default class Sidebar {
   constructor() {
-    this.config = sidebarMapConfig[import.meta.env.VITE_APP_LAYOUT];
+    this.routes = sidebarMapConfig[import.meta.env.VITE_APP_LAYOUT];
     this.sidebar = document.querySelector(".menu-inner");
 
     this.activeId = this.sidebar.dataset.id;
-    this.renderSidebar();
+    this.renderSidebar().handleNavigation();
+  }
+
+  handleNavigation() {
+    this.sidebar.addEventListener("click", (e) => {
+      e.preventDefault();
+      const target = e.target.closest("a");
+
+      if (target) {
+        const path = target.getAttribute("href");
+
+        path && window.location.assign(path);
+      }
+    });
   }
 
   renderSidebar() {
-    this.sidebar.innerHTML = this.config
-      .map((route, index) => {
+    this.sidebar.innerHTML = this.routes
+      .map((route, _) => {
         return route?.submenus !== undefined
           ? this.renderDropdown(route)
           : this.renderItem(route);
       })
       .join("");
+
+    return this;
   }
 
   renderItem({ id, title, icon, path, header }, active = false) {
-    console.log(this.activeId);
     const elemIsActive = active || this.isActive(id);
-    console.log(elemIsActive);
 
     if (header) {
       return `
