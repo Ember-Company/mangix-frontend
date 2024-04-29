@@ -9,9 +9,9 @@ const main_routes = [
   },
   {
     id: 2,
-    title: "Users",
+    title: "Funcionários",
     icon: '<i class="menu-icon tf-icons bx bx-user"></i>',
-    path: toPage("users/"),
+    path: toPage("funcionarios/"),
   },
   {
     id: 3,
@@ -48,8 +48,16 @@ const main_routes = [
     icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
     path: toPage("login/"),
   },
+  {
+    id: 7,
+    title: "Pagina testerrr",
+    icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
+    path: toPage("testefodase/"),
+  },
 ];
 
 export const sidebarMapConfig = {
   main: main_routes,
 };
+
+
