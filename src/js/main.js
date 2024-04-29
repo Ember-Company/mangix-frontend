@@ -490,17 +490,29 @@ document.getElementById("layout-menu") &&
     /* Funcao para ter o relogio em tempo real
     =====================================================================================================================*/
 
+    <script>
     function updateTime() {
-      var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
-      document.getElementById('clock').textContent = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
-  }
-  
-  updateTime();
-  setInterval(updateTime, 1000);
-  
+        var now = new Date();
+        var days = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
+        var months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+        var day = days[now.getDay()];
+        var month = months[now.getMonth()];
+        var year = now.getFullYear();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        document.getElementById('clock').textContent = day + ', ' + now.getDate() + ' de ' + month + ' de ' + year + ' - ' + hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+    }
+
+    updateTime(); 
+
+
+    setInterval(updateTime, 1000);
+
+    
+</script>
 
 /* =============================================================================================================================*/
 

@@ -127,7 +127,7 @@
   margin-top: 1rem;
 }
 
-/* Layout Tela Login Colaborador
+/* Layout Tela Login Colaborador/Adm/Bater Ponto
 ============================================================================================================ */
 
 .body{
@@ -155,41 +155,77 @@ body {
   background-color: #F5F5F5;
 }
 
+.clock-container{
+  padding:20px;
+  margin: 0;
+  justify-content: center;
+  display: flex;
+}
+
+.clock{
+  color: black;
+  font-size: 16px;
+}
+
+.form{
+  margin-top:50px;
+}
+
 .login-container {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
 .card {
   background-color: #fff;
   width: 500px;
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
+  padding: 15px;
+  font-weight: bold;
+  color:black;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.card-clockin {
+  background-color: #fff;
+  width: 500px;
+  height: 600px;
+  padding: 15px;
+  font-weight: bold;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 
 .options {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  
 
 }
 
 .option {
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   border-radius: 10px;
   transition: background-color 0.3s ease;
   justify-content: center;
   align-items: center;
   display: flex;
-  font-size: 12px;
- font-weight: bold;
+  font-size: 14px;
+  font-weight: bold;
+  color:black;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+  
+
 }
 
 .option:hover {
@@ -210,22 +246,27 @@ input[type="text"],input[type="password"] {
   border: 2px solid #c9c4c4;
   border-radius: 4px;
   box-sizing: border-box;
-  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); ;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); 
 }
 
 button {
-  width: 100px;
+  width: 150px;
   height: 36px;
-  padding: 10px 100px;
+  padding: 10px 15px;
   justify-content: center;
   display:flex;
-  margin-left: 50px;
+  align-items: center;
+  margin-left:auto;
+  margin-right: auto;
   background-color: #FF6B00;
   border: none;
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
 button:hover {
