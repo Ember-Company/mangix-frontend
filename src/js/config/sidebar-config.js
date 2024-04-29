@@ -9,9 +9,9 @@ const main_routes = [
   },
   {
     id: 2,
-    title: "Users",
+    title: "Funcionários",
     icon: '<i class="menu-icon tf-icons bx bx-user"></i>',
-    path: toPage("users/"),
+    path: toPage("funcionarios/"),
   },
   {
     id: 3,

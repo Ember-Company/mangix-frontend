@@ -16,7 +16,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: "/",
-        users: "/app/users/",
+        funcionarios: "/app/funcionarios/",
         accessPermissions: "/app/access/permissions/",
         accessRoles: "/app/access/roles/",
         demoPage: "/app/demo-page/",
