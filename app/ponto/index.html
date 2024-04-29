@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style layout-navbar-fixed layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="/src"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>Dashboard</title>
+
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="/src/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="/src/vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="/src/vendor/fonts/flag-icons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="/src/vendor/css/rtl/core.css" />
+    <link rel="stylesheet" href="/src/vendor/css/rtl/theme-default.css" />
+    <link rel="stylesheet" href="/src/css/demo.css" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <link rel="stylesheet" href="/src/css/admfuncionarios.css"/>
+
+    <!-- Vendors CSS -->
+    <link
+      rel="stylesheet"
+      href="/src/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
+    <link rel="stylesheet" href="/src/vendor/libs/typeahead-js/typeahead.css" />
+    <link
+      rel="stylesheet"
+      href="/src/vendor/libs/apex-charts/apex-charts.css"
+    />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="/src/vendor/js/helpers.js"></script>
+    <script src="/src/vendor/js/template-customizer.js"></script>
+    <script src="/src/js/config/theme-config.js"></script>
+    <script src="/src/js/_base.js" type="module"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  </head>
+
+  <body>
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <aside
+          id="layout-menu"
+          class="layout-menu menu-vertical menu bg-menu-theme"
+        >
+          <div class="app-brand">
+            <a href="/" class="app-brand-link">
+              <span class="app-brand-logo demo"> </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-2"
+                >Mangix</span
+              >
+            </a>
+
+            <a
+              href="javascript:void(0);"
+              class="layout-menu-toggle menu-link text-large ms-auto"
+            >
+              <i class="bx bx-chevron-left bx-sm align-middle"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1" id="main" data-id="7"></ul>
+        </aside>
+
+        <div class="layout-page">
+          <div class="container-lg text-center">
+            <div class="container">
+              <div class="dashboard">
+                  <div>
+                      <!-- Conteúdo do dashboard aqui -->
+                      <div class="pontosregistrados">
+                          <h1>Pontos Registrados</h1>
+                      </div>
+                      <div class="dados">
+                          <div>
+                              <input type="text" placeholder="Nome">
+                          </div>
+                          <div>
+                              <input type="text" placeholder="CPF">
+                          </div>
+                          <div>
+                              <input type="text" placeholder="PIN">
+                          </div>
+                          <div>
+                              <select id="yearSelect">
+                              </select>
+                          </div>
+                          <div class="date">
+                              <input type="date">
+                              <input type="date">
+                          </div>
+                          <div>
+                              <button>
+                                  Filtrar
+                              </button>
+                          </div>
+                      </div>
+                      <div class="titulos">
+                          <div>
+                              <p>N</p>
+                          </div>
+                          <div>
+                              <p>Nome:</p>
+                          </div>
+                          <div>
+                              <p>PIN:</p>
+                          </div>
+                          <div>
+                              <p>Data:</p>
+                          </div>
+                          <div>
+                              <p>Entrada 1:</p>
+                          </div>
+                          <div>
+                              <p>Saida 1:</p>
+                          </div>
+                          <div>
+                              <p>Entrada 2:</p>
+                          </div>
+                          <div>
+                              <p>Saida 2:</p>
+                          </div>
+                          <div>
+                              <p></p>
+                          </div>
+                      </div>
+                      <div id="dynamicContent"></div>
+                  </div>
+                  <div class="gerarpdf">
+                      <p>Gerar PDF</p>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/src/js/admfuncionario.js"></script>
+    <script src="/src/vendor/libs/jquery/jquery.js"></script>
+    <script src="/src/vendor/libs/popper/popper.js"></script>
+    <script src="/src/vendor/js/bootstrap.js"></script>
+    <script src="/src/vendor/js/menu.js"></script>
+
+    <script src="./src/js/main.js"></script>
+  </body>
+</html>
