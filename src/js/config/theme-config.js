@@ -19,7 +19,7 @@ let config = {
     },
     colors_label: {
       primary: "#666ee81a",
-      secondary: "#8897aa1a",
+      secondary: "#FF6B00",
       success: "#28d0941a",
       info: "#1e9ff21a",
       warning: "#ff91491a",

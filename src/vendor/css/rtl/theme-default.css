@@ -1778,10 +1778,10 @@ html:not(.layout-menu-collapsed)
 }
 .bg-menu-theme .menu-inner > .menu-item.active > .menu-link {
   color: #696cff;
-  background-color: rgba(105, 108, 255, 0.16) !important;
+  background-color:  #eee !important;
 }
 .bg-menu-theme .menu-inner > .menu-item.active:before {
-  background: #696cff;
+  background: #eee;
 }
 .bg-menu-theme .menu-sub > .menu-item > .menu-link:before {
   background-color: #b4bdc6 !important;
@@ -1794,7 +1794,7 @@ html:not(.layout-menu-collapsed)
   border: 3px solid #e7e7ff !important;
 }
 .app-brand .layout-menu-toggle {
-  background-color: #696cff;
+  background-color:rgba(255, 107, 0) !important;
   border: 7px solid #f5f5f9;
 }
 .app-brand .layout-menu-toggle i {

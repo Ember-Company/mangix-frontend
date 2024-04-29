@@ -12,6 +12,7 @@
   font-size: 1.75rem;
   letter-spacing: -0.5px;
   text-transform: lowercase;
+  color: #FF6B00 !important;  
 }
 
 /* ! For .layout-navbar-fixed added fix padding top to .layout-page */
@@ -99,6 +100,8 @@
   }
 }
 
+
+
 /*
 * Layout demo
 ******************************************************************************/
@@ -123,3 +126,28 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+.text-primary{
+  color: #FF6B00 !important;
+}
+
+.menu-item.active .menu-link {
+  background-color: rgba(255, 222, 173, 0.3)  !important;
+  color: rgba(255, 107, 0, 0.7) !important;
+}
+
+.menu-link{
+  color: #9c9c9c !important;
+  /* background-color:!important; */
+}
+
+.hover-scale {
+  transform: scale(1);
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
