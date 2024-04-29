@@ -23,6 +23,7 @@ export default defineConfig({
         loginAdm: "/app/login-adm/",
         loginColaborador: "/app/login-colaborador/",
         baterPonto: "/app/bater-ponto/",
+        confirmacaoPonto: "/app/confirmacao-ponto/",
       },
     },
   },
