@@ -34,10 +34,10 @@ $(function () {
       columns: [
         { data: "" },
         { data: "full_name" },
-        { data: "role" },
-        { data: "current_plan" },
-        { data: "billing" },
-        { data: "status" },
+        { data: "cpf" },
+        { data: "pin" },
+        // { data: "current_plan" },
+        // { data: "billing" },
         { data: "action" },
       ],
       columnDefs: [
@@ -93,38 +93,50 @@ $(function () {
           },
         },
         {
-          targets: 2,
-          render: function (data, type, row, meta) {
-            const role = row.role;
+          target: 2,
+          render: function(data, type, row, meta) {
+            const cpf = row.cpf;
+
             return `
-              <span class='text-truncate d-flex align-items-center'>
-                ${
-                  {
-                    Subscriber: `<span class="badge badge-center rounded-pill bg-label-warning w-px-30 h-px-30 me-2"><i class="bx bx-user bx-xs"></i></span>`,
-                    Author: `<span class="badge badge-center rounded-pill bg-label-success w-px-30 h-px-30 me-2"><i class="bx bx-cog bx-xs"></i></span>`,
-                    Maintainer: `<span class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2"><i class="bx bx-pie-chart-alt bx-xs"></i></span>`,
-                    Editor: `<span class="badge badge-center rounded-pill bg-label-info w-px-30 h-px-30 me-2"><i class="bx bx-edit bx-xs"></i></span>`,
-                    Admin: `<span class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span>`,
-                  }[role]
-                }
-                ${role}
-              </span>
-            `;
-          },
+              <span class='text-truncate'>
+                ${cpf} 
+              </span> 
+            `
+          }
         },
+        // {
+        //   targets: 2,
+        //   render: function (data, type, row, meta) {
+        //     const role = row.role
+        //     return `
+        //       <span class='text-truncate d-flex align-items-center'>
+        //         ${
+        //           {
+        //             Subscriber: `<span class="badge badge-center rounded-pill bg-label-warning w-px-30 h-px-30 me-2"><i class="bx bx-user bx-xs"></i></span>`,
+        //             Author: `<span class="badge badge-center rounded-pill bg-label-success w-px-30 h-px-30 me-2"><i class="bx bx-cog bx-xs"></i></span>`,
+        //             Maintainer: `<span class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2"><i class="bx bx-pie-chart-alt bx-xs"></i></span>`,
+        //             Editor: `<span class="badge badge-center rounded-pill bg-label-info w-px-30 h-px-30 me-2"><i class="bx bx-edit bx-xs"></i></span>`,
+        //             Admin: `<span class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span>`,
+        //           }[role]
+        //         }
+        //         ${role}
+        //       </span>
+        //     `;
+        //   },
+        // },
         {
           targets: 3,
           render: function (data, type, row, meta) {
-            return `<span class="fw-medium">${row.current_plan}</span>`;
+            return `<span class="fw-medium">${row.pin}</span>`;
           },
         },
-        {
-          targets: 5,
-          render: function (data, type, row, meta) {
-            const status = row.status;
-            return `<span class="badge ${statusLabels[status].class}">${statusLabels[status].title}</span>`;
-          },
-        },
+        // {
+        //   targets: 5,
+        //   render: function (data, type, row, meta) {
+        //     const status = row.status;
+        //     return `<span class="badge ${statusLabels[status].class}">${statusLabels[status].title}</span>`;
+        //   },
+        // },
         {
           targets: -1,
           title: "Actions",

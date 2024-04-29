@@ -212,10 +212,10 @@ a.bg-primary:focus {
 .pagination li.active > a:not(.page-link),
 .pagination li.active > a:not(.page-link):hover,
 .pagination li.active > a:not(.page-link):focus {
-  border-color: #696cff;
-  background-color: #696cff;
+  border-color: #FF6B00;
+  background-color: #FF6B00;
   color: #fff;
-  box-shadow: 0 0.125rem 0.25rem rgba(105, 108, 255, 0.4);
+  box-shadow: 0 0.125rem 0.25rem rgba(255, 107, 0, 0.4);
 }
 .progress-bar {
   background-color: #696cff;
@@ -493,9 +493,9 @@ button.list-group-item-primary.active {
 }
 .btn-primary {
   color: #fff;
-  background-color: #696cff;
-  border-color: #696cff;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+  background-color: #FF6B00;
+  border-color: #FF6B00;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 107, 0, 0.4);
 }
 .btn-primary:hover {
   color: #fff !important;
