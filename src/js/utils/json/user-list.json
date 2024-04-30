@@ -2,29 +2,29 @@
   "data": [
     {
       "full_name": "John Doe",
-      "email": "johndoe@gmail.com",
       "role": "Admin",
-      "current_plan": "Pro",
-      "billing": "$100",
+      "cpf": 71872613144,
       "status": 2,
+      "pin": 4644444,
+      "email": "johndoe@gmail.com",
       "avatar": "1.png"
     },
     {
-      "full_name": "Jane Doe",
-      "email": "janedoe@gmail.com",
-      "role": "Editor",
-      "current_plan": "Basic",
-      "billing": "$50",
+      "full_name": "John Doe",
+      "role": "Funcionario",
+      "cpf": 66256256256,
       "status": 1,
+      "pin": 9518,
+      "email": "johndoe@gmail.com",
       "avatar": "2.png"
     },
     {
       "full_name": "John Doe",
-      "email": "johndoe@gmail.com",
-      "role": "Maintainer",
-      "current_plan": "Pro",
-      "billing": "$100",
+      "role": "Funcionario",
+      "cpf": 71878875663,
       "status": 3,
+      "pin": 65298,
+      "email": "johndoe@gmail.com",
       "avatar": "3.png"
     }
   ]
