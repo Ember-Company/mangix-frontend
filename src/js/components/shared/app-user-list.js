@@ -485,5 +485,3 @@ $(function () {
     },
   });
 });
-
-// create a user list.json
