@@ -860,8 +860,8 @@
               <input
                 type="text"
                 class="form-control search-input container-xxl border-0"
-                placeholder="Search..."
-                aria-label="Search..."
+                placeholder="Pesquisar nome, cpf ou pin"
+                aria-label="Pesquisar nome, cpf ou pin"
               />
               <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
             </div>
@@ -892,7 +892,9 @@
                       <tr>
                         <th></th>
                         <th>User</th>
+                        <th>Role</th>
                         <th>CPF</th>
+                        <th>Status</th>
                         <th>Pin</th>
                         <th>Action</th>
                     </thead>
@@ -1011,11 +1013,8 @@
                           >User Role</label
                         >
                         <select id="user-role" class="form-select">
-                          <option value="subscriber">Subscriber</option>
-                          <option value="editor">Editor</option>
-                          <option value="maintainer">Maintainer</option>
-                          <option value="author">Author</option>
-                          <option value="admin">Admin</option>
+                          <option value="Admin">Admin</option>
+                          <option value="Funcionario">Funcionario</option>
                         </select>
                       </div>
                       <div class="mb-4">

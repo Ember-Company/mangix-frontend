@@ -16,9 +16,9 @@ $(function () {
   const select2 = $(".select2");
   const userViewAccountUrl = "app-user-view-account.html";
   const statusLabels = {
-    1: { title: "Pending", class: "bg-label-warning" },
-    2: { title: "Active", class: "bg-label-success" },
-    3: { title: "Inactive", class: "bg-label-secondary" },
+    1: { title: "Na hora", class: "bg-label-success" },
+    2: { title: "Atraso", class: "bg-label-warning" },
+    3: { title: "Não apareceu", class: "bg-label-danger" },
   };
 
   if (select2.length) {
@@ -34,10 +34,10 @@ $(function () {
       columns: [
         { data: "" },
         { data: "full_name" },
+        { data: "role" },
         { data: "cpf" },
+        { data: "status" },
         { data: "pin" },
-        // { data: "current_plan" },
-        // { data: "billing" },
         { data: "action" },
       ],
       columnDefs: [
@@ -93,50 +93,48 @@ $(function () {
           },
         },
         {
-          target: 2,
-          render: function(data, type, row, meta) {
+          target: 3,
+          render: function (data, type, row, meta) {
             const cpf = row.cpf;
 
             return `
               <span class='text-truncate'>
                 ${cpf} 
               </span> 
-            `
-          }
+            `;
+          },
         },
-        // {
-        //   targets: 2,
-        //   render: function (data, type, row, meta) {
-        //     const role = row.role
-        //     return `
-        //       <span class='text-truncate d-flex align-items-center'>
-        //         ${
-        //           {
-        //             Subscriber: `<span class="badge badge-center rounded-pill bg-label-warning w-px-30 h-px-30 me-2"><i class="bx bx-user bx-xs"></i></span>`,
-        //             Author: `<span class="badge badge-center rounded-pill bg-label-success w-px-30 h-px-30 me-2"><i class="bx bx-cog bx-xs"></i></span>`,
-        //             Maintainer: `<span class="badge badge-center rounded-pill bg-label-primary w-px-30 h-px-30 me-2"><i class="bx bx-pie-chart-alt bx-xs"></i></span>`,
-        //             Editor: `<span class="badge badge-center rounded-pill bg-label-info w-px-30 h-px-30 me-2"><i class="bx bx-edit bx-xs"></i></span>`,
-        //             Admin: `<span class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span>`,
-        //           }[role]
-        //         }
-        //         ${role}
-        //       </span>
-        //     `;
-        //   },
-        // },
         {
-          targets: 3,
+          targets: 2,
+          render: function (data, type, row, meta) {
+            const role = row.role;
+            return `
+              <span class='text-truncate d-flex align-items-center'>
+                ${
+                  {
+                    Funcionario: `<span class="badge badge-center rounded-pill bg-label-warning w-px-30 h-px-30 me-2"><i class="bx bx-user bx-xs"></i></span>`,
+                    Admin: `<span class="badge badge-center rounded-pill bg-label-secondary w-px-30 h-px-30 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span>`,
+                  }[role]
+                }
+                ${role}
+              </span>
+            `;
+          },
+        },
+        {
+          targets: 4,
+          render: function (data, type, row, meta) {
+            const status = row.status;
+
+            return `<span class="badge ${statusLabels[status].class}">${statusLabels[status].title}</span>`;
+          },
+        },
+        {
+          targets: 5,
           render: function (data, type, row, meta) {
             return `<span class="fw-medium">${row.pin}</span>`;
           },
         },
-        // {
-        //   targets: 5,
-        //   render: function (data, type, row, meta) {
-        //     const status = row.status;
-        //     return `<span class="badge ${statusLabels[status].class}">${statusLabels[status].title}</span>`;
-        //   },
-        // },
         {
           targets: -1,
           title: "Actions",
@@ -162,7 +160,7 @@ $(function () {
       language: {
         sLengthMenu: "_MENU_",
         search: "",
-        searchPlaceholder: "Search..",
+        searchPlaceholder: "Pesquisa ",
       },
       buttons: [
         {
@@ -365,10 +363,10 @@ $(function () {
       initComplete: function () {
         this.api()
           .columns(2)
-          .every(function () {
+          .every(function (data) {
             const column = this;
             const select = $(
-              '<select id="UserRole" class="form-select text-capitalize"><option value=""> Select Role </option></select>'
+              '<select id="UserRole" class="form-select text-capitalize"><option value=""> Filtrar por função </option></select>'
             )
               .appendTo(".user_role")
               .on("change", function () {
@@ -383,59 +381,60 @@ $(function () {
               .unique()
               .sort()
               .each(function (value, index) {
+                console.log(value);
                 select.append(`<option value="${value}">${value}</option>`);
               });
           });
 
-        this.api()
-          .columns(3)
-          .every(function () {
-            const column = this;
-            const select = $(
-              '<select id="UserPlan" class="form-select text-capitalize"><option value=""> Select Plan </option></select>'
-            )
-              .appendTo(".user_plan")
-              .on("change", function () {
-                const value = $.fn.dataTable.util.escapeRegex($(this).val());
-                column
-                  .search(value ? "^" + value + "$" : "", true, false)
-                  .draw();
-              });
+        // this.api()
+        //   .columns(3)
+        //   .every(function () {
+        //     const column = this;
+        //     const select = $(
+        //       '<select id="UserPlan" class="form-select text-capitalize"><option value=""> Select Plan </option></select>'
+        //     )
+        //       .appendTo(".user_plan")
+        //       .on("change", function () {
+        //         const value = $.fn.dataTable.util.escapeRegex($(this).val());
+        //         column
+        //           .search(value ? "^" + value + "$" : "", true, false)
+        //           .draw();
+        //       });
 
-            column
-              .data()
-              .unique()
-              .sort()
-              .each(function (value, index) {
-                select.append(`<option value="${value}">${value}</option>`);
-              });
-          });
+        //     column
+        //       .data()
+        //       .unique()
+        //       .sort()
+        //       .each(function (value, index) {
+        //         select.append(`<option value="${value}">${value}</option>`);
+        //       });
+        //   });
 
-        this.api()
-          .columns(5)
-          .every(function () {
-            const column = this;
-            const select = $(
-              '<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Select Status </option></select>'
-            )
-              .appendTo(".user_status")
-              .on("change", function () {
-                const value = $.fn.dataTable.util.escapeRegex($(this).val());
-                column
-                  .search(value ? "^" + value + "$" : "", true, false)
-                  .draw();
-              });
+        // this.api()
+        //   .columns(5)
+        //   .every(function () {
+        //     const column = this;
+        //     const select = $(
+        //       '<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Select Status </option></select>'
+        //     )
+        //       .appendTo(".user_status")
+        //       .on("change", function () {
+        //         const value = $.fn.dataTable.util.escapeRegex($(this).val());
+        //         column
+        //           .search(value ? "^" + value + "$" : "", true, false)
+        //           .draw();
+        //       });
 
-            column
-              .data()
-              .unique()
-              .sort()
-              .each(function (value, index) {
-                select.append(
-                  `<option value="${statusLabels[value].title}" class="text-capitalize">${statusLabels[value].title}</option>`
-                );
-              });
-          });
+        //     column
+        //       .data()
+        //       .unique()
+        //       .sort()
+        //       .each(function (value, index) {
+        //         select.append(
+        //           `<option value="${statusLabels[value].title}" class="text-capitalize">${statusLabels[value].title}</option>`
+        //         );
+        //       });
+        //   });
       },
     });
 
