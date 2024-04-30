@@ -36,7 +36,7 @@ $(function () {
         { data: "full_name" },
         { data: "role" },
         { data: "cpf" },
-        { data: "status" },
+        // { data: "status" },
         { data: "pin" },
         { data: "action" },
       ],
@@ -121,14 +121,14 @@ $(function () {
             `;
           },
         },
-        {
-          targets: 4,
-          render: function (data, type, row, meta) {
-            const status = row.status;
+        // {
+        //   targets: 4,
+        //   render: function (data, type, row, meta) {
+        //     const status = row.status;
 
-            return `<span class="badge ${statusLabels[status].class}">${statusLabels[status].title}</span>`;
-          },
-        },
+        //     return `<span class="badge ${statusLabels[status].class}">${statusLabels[status].title}</span>`;
+        //   },
+        // },
         {
           targets: 5,
           render: function (data, type, row, meta) {
@@ -363,12 +363,38 @@ $(function () {
       initComplete: function () {
         this.api()
           .columns(2)
-          .every(function (data) {
+          .every(function () {
             const column = this;
             const select = $(
               '<select id="UserRole" class="form-select text-capitalize"><option value=""> Filtrar por função </option></select>'
             )
               .appendTo(".user_role")
+              .on("change", function () {
+                const value = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                column
+                  .search(value ? "^" + value + "$" : "", true, false)
+                  .draw();
+              });
+
+            column
+              .data()
+              .unique()
+              .sort()
+              .each(function (value, index) {
+                select.append(`<option value="${value}">${value}</option>`);
+              });
+          });
+
+        this.api()
+          .columns(4)
+          .every(function () {
+            const column = this;
+            console.log(this);
+            const select = $(
+              '<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Filtrar por status </option></select>'
+            )
+              .appendTo(".user_status")
               .on("change", function () {
                 const value = $.fn.dataTable.util.escapeRegex($(this).val());
                 column
@@ -381,60 +407,11 @@ $(function () {
               .unique()
               .sort()
               .each(function (value, index) {
-                console.log(value);
-                select.append(`<option value="${value}">${value}</option>`);
+                select.append(
+                  `<option value="${statusLabels[value].title}" class="text-capitalize">${statusLabels[value].title}</option>`
+                );
               });
           });
-
-        // this.api()
-        //   .columns(3)
-        //   .every(function () {
-        //     const column = this;
-        //     const select = $(
-        //       '<select id="UserPlan" class="form-select text-capitalize"><option value=""> Select Plan </option></select>'
-        //     )
-        //       .appendTo(".user_plan")
-        //       .on("change", function () {
-        //         const value = $.fn.dataTable.util.escapeRegex($(this).val());
-        //         column
-        //           .search(value ? "^" + value + "$" : "", true, false)
-        //           .draw();
-        //       });
-
-        //     column
-        //       .data()
-        //       .unique()
-        //       .sort()
-        //       .each(function (value, index) {
-        //         select.append(`<option value="${value}">${value}</option>`);
-        //       });
-        //   });
-
-        // this.api()
-        //   .columns(5)
-        //   .every(function () {
-        //     const column = this;
-        //     const select = $(
-        //       '<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Select Status </option></select>'
-        //     )
-        //       .appendTo(".user_status")
-        //       .on("change", function () {
-        //         const value = $.fn.dataTable.util.escapeRegex($(this).val());
-        //         column
-        //           .search(value ? "^" + value + "$" : "", true, false)
-        //           .draw();
-        //       });
-
-        //     column
-        //       .data()
-        //       .unique()
-        //       .sort()
-        //       .each(function (value, index) {
-        //         select.append(
-        //           `<option value="${statusLabels[value].title}" class="text-capitalize">${statusLabels[value].title}</option>`
-        //         );
-        //       });
-        //   });
       },
     });
 
