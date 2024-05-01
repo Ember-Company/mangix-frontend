@@ -432,7 +432,7 @@ $(function () {
 
   if (phoneInputs) {
     phoneInputs.forEach(function (input) {
-      new Cleave(input, { phone: true, phoneRegionCode: "US" });
+      new Cleave(input, { phone: true, phoneRegionCode: "BR" });
     });
   }
 
