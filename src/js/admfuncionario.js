@@ -1,16 +1,3 @@
-var selectElement = document.getElementById("yearSelect");
-
-var currentYear = new Date().getFullYear();
-
-
-for (var year = currentYear; year >= 1900; year--) {
-    var option = document.createElement("option");
-    option.text = year;
-    option.value = year;
-    selectElement.add(option);
-}
-
-
 function criarDivs() {
     const dynamicContent = document.getElementById('dynamicContent');
     const numDivs = new Date().getDate();
