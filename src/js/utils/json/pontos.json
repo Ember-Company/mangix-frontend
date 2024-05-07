@@ -1,0 +1,24 @@
+{
+    "registros": [
+        {
+            "Nome": "Nathan",
+            "pin": "00000",
+            "CPF": 71872613144,
+            "data": "2024-05-02",
+            "HoraInicio": "08:00",
+            "HoraFim": "12:00",
+            "HoraInicioTarde": "13:00",
+            "HoraFimTarde": "18:00"
+        },
+        {
+            "Nome": "Joao",
+            "pin": "00001",
+            "CPF": 71872613145,
+            "data": "2024-05-03",
+            "HoraInicio": "08:00",
+            "HoraFim": "12:00",
+            "HoraInicioTarde": "13:00",
+            "HoraFimTarde": "18:00"
+        }
+    ]
+}

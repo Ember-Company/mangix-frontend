@@ -47,6 +47,3 @@ function criarDivs() {
         dynamicContent.appendChild(div);
     }
 }
-
-// Chamada da função ao carregar a página
-window.onload = criarDivs;
