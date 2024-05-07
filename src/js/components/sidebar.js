@@ -1,4 +1,3 @@
-import { loadPage } from "../utils/route-builder.js";
 import { sidebarMapConfig } from "../config/sidebar-config.js";
 
 export default class Sidebar {
@@ -26,6 +25,11 @@ export default class Sidebar {
   renderSidebar() {
     this.sidebar.innerHTML = this.routes
       .map((route, _) => {
+        console.log(
+          "submenus count: ",
+          route?.submenus.length || typeof route?.submenus
+        );
+
         return route?.submenus !== undefined
           ? this.renderDropdown(route)
           : this.renderItem(route);
@@ -74,7 +78,7 @@ export default class Sidebar {
         </a>
         <ul class="menu-sub">
           ${submenus
-            .map((submenu) =>
+            ?.map((submenu) =>
               this.renderItem(submenu, submenu.id === Number(idList[1]))
             )
             .join("")}
