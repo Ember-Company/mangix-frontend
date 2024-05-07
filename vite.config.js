@@ -21,7 +21,8 @@ export default defineConfig({
         accessRoles: "/app/access/roles/",
         demoPage: "/app/demo-page/",
         loginPage: "/app/login/",
-        teste: "/app/testefodase/"
+        teste: "/app/testefodase/",
+        ponto: "/app/ponto/"
       },
     },
   },

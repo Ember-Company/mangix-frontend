@@ -1,0 +1,70 @@
+.dashboard {
+    display: flexbox;
+    flex-grow: 1;
+    /*Aumenta para ocupar o espaço restante*/
+    border-radius: 20px;
+    margin: 0 0 0 10px;
+}
+
+.pontosregistrados {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.pontosregistrados h1 {
+    letter-spacing: -0.5px;
+    color: gray !important;
+}
+
+.dados {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.dados input {
+    border-radius: 1px;
+    margin: 0 20px 0 5px;
+}
+
+.titulos {
+    display: flex;
+    margin: 0 30px 0 30px;
+    justify-content: space-between;
+}
+
+.dias {
+    display: flex;
+    margin: 0 30px 0 30px;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.form-control{
+    border-radius: 5px !important;
+}
+
+.btn{
+    background: #FF6B00 !important;
+    border: 1px solid #FF6B00 !important;
+    height: auto;
+    width: auto;
+    margin-left: 20px;
+}
+#defaultFormControlInput{
+    height: auto !important;
+}
+
+#gerarpdf{
+    margin-top:10px !important;
+    margin-bottom: 10px !important;
+}
+
+.alignleft{
+    margin-top: 20px;
+    text-align: left;
+}
