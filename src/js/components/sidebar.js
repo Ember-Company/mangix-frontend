@@ -6,7 +6,7 @@ export default class Sidebar {
     this.sidebar = document.querySelector(".menu-inner");
 
     this.activeId = this.sidebar.dataset.id;
-    this.renderSidebar().handleNavigation();
+    this.render().handleNavigation();
   }
 
   handleNavigation() {
@@ -22,7 +22,7 @@ export default class Sidebar {
     });
   }
 
-  renderSidebar() {
+  render() {
     this.sidebar.innerHTML = this.routes
       .map((route, _) => {
         console.log(
@@ -31,15 +31,15 @@ export default class Sidebar {
         );
 
         return route?.submenus !== undefined
-          ? this.renderDropdown(route)
-          : this.renderItem(route);
+          ? this.dropdown(route)
+          : this.item(route);
       })
       .join("");
 
     return this;
   }
 
-  renderItem({ id, title, icon, path, header }, active = false) {
+  item({ id, title, icon, path, header }, active = false) {
     const elemIsActive = active || this.isActive(id);
 
     if (header) {
@@ -64,7 +64,7 @@ export default class Sidebar {
     `;
   }
 
-  renderDropdown({ id, title, icon, path, submenus }) {
+  dropdown({ id, title, icon, path, submenus }) {
     const idList = this.activeId.split("-");
     const active = id === Number(idList[0]);
 
@@ -79,7 +79,7 @@ export default class Sidebar {
         <ul class="menu-sub">
           ${submenus
             ?.map((submenu) =>
-              this.renderItem(submenu, submenu.id === Number(idList[1]))
+              this.item(submenu, submenu.id === Number(idList[1]))
             )
             .join("")}
         </ul>
