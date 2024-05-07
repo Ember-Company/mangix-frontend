@@ -51,9 +51,7 @@
   </head>
 
   <body>
-    <div class="clock-container">
-      <div class="clock" id="clock"></div>
-    </div>
+    
     <div class="login-container">
         <div class="card-clockin">
             <div class="options">
@@ -61,16 +59,23 @@
                 <div class="option">COLABORADOR</div>
                 <div class="option selected">CARTÃO PONTO</div>
             </div>
+            <div class="clock" id="clock"></div>
+
             <form>
                 <label  for="usuario">PIN</label>
                 <input type="text" name="usuario" placeholder="PIN">
                 <label  for="senha">senha</label>
                 <input type="password" name="senha" placeholder="Senha">
-                <button type="submit">ENTRAR</button>
+                <button type="submit">REGISTRAR PONTO</button>
             </form>
         </div>
+        
     </div>
-      
+    
+
+    <script>
+      updateTime();
+    </script>
       
     
 
