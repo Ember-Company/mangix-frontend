@@ -127,27 +127,158 @@
   margin-top: 1rem;
 }
 
-.text-primary{
-  color: #FF6B00 !important;
+/* Layout Tela Login Colaborador/Adm/Bater Ponto
+============================================================================================================ */
+
+.body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  background-color: aqua; 
 }
 
-.menu-item.active .menu-link {
-  background-color: rgba(255, 222, 173, 0.3)  !important;
-  color: rgba(255, 107, 0, 0.7) !important;
+.main-login{
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  background-color:#F4F4F4 ;
+  display: flex;
+  align-items: center;
+
 }
 
-.menu-link{
-  color: #9c9c9c !important;
-  /* background-color:!important; */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  background-color: #F5F5F5;
 }
 
-.hover-scale {
-  transform: scale(1);
+.clock-container{
+  padding:20px;
+  margin: 0;
+  justify-content: center;
+  display: flex;
+}
+
+.clock{
+  color: black;
+  font-size: 16px;
+  text-align: center;
+}
+
+.card-clockin > h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+.login-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:auto;
+}
+
+.card {
+  background-color: #fff;
+  width: 500px;
+  padding: 15px;
+  font-weight: bold;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-clockin {
+  background-color: #fff;
+  width: 500px;
+  height: 600px;
+  padding: 15px;
+  font-weight: bold;
+  color:black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  
+
+}
+
+.option {
   cursor: pointer;
-  transition: transform .3s ease;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  color:black;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+  
+
 }
 
-.hover-scale:hover {
-  transform: scale(1.05);
+.option:hover {
+  background-color: #FF6B00;
+  color: #fff;
 }
 
+.selected {
+  background-color: #FF6B00;
+  color: #fff;
+}
+
+.clock{
+  
+  font-size: 16px;
+  text-align: center;
+}
+input[type="text"],input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #F0F0F0;
+  margin-bottom: 10px;
+  border: 2px solid #c9c4c4;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); 
+}
+
+button {
+  width: 200px;
+  height: 36px;
+  padding: 10px 15px;
+  justify-content: center;
+  display:flex;
+  align-items: center;
+  margin-left:auto;
+  margin-right: auto;
+  background-color: #FF6B00;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: #ff7f00;
+}

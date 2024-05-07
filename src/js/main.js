@@ -486,3 +486,22 @@ document.getElementById("layout-menu") &&
             e.update();
           }));
     });
+
+    /* Funcao para ter o relogio em tempo real
+    =====================================================================================================================*/
+
+    function updateTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      document.getElementById('clock').textContent = hours + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds);
+  }
+  
+  updateTime();
+  setInterval(updateTime, 1000);
+  
+
+/* =============================================================================================================================*/
+
+    

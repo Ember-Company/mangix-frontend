@@ -20,8 +20,10 @@ export default defineConfig({
         accessPermissions: "/app/access/permissions/",
         accessRoles: "/app/access/roles/",
         demoPage: "/app/demo-page/",
-        loginPage: "/app/login/",
-        teste: "/app/testefodase/"
+        loginAdm: "/app/login-adm/",
+        loginColaborador: "/app/login-colaborador/",
+        baterPonto: "/app/bater-ponto/",
+        confirmacaoPonto: "/app/confirmacao-ponto/",
       },
     },
   },
