@@ -1,17 +1,24 @@
 import { defineConfig } from "vite";
 import fs from "fs";
+import path from "path";
 
-function extractPageRoutes() {
+async function extractPageRoutes(appDir) {
   let input = {};
-  const folders = fs.readdirSync("app", { withFileTypes: true });
 
-  folders.forEach((folder) => {
-    if (folder.isDirectory()) {
-      const folderName = folder.name;
-      input[folderName] = `/app/${folderName}/`;
+  const traverse = async (dir) => {
+    const folders = await fs.promises.readdir(dir, { withFileTypes: true });
+
+    for (const folder of folders) {
+      const route = path.join(dir, folder.name);
+
+      folder.isDirectory() && (await traverse(route));
+
+      const key = folder.name.split(".")[0];
+      input[key] = path.relative(appDir, route);
     }
-  });
+  };
 
+  await traverse(appDir);
   return input;
 }
 
@@ -29,7 +36,7 @@ export default defineConfig({
     },
     outDir: "dist",
     rollupOptions: {
-      ...extractPageRoutes(),
+      input: await extractPageRoutes("app"),
     },
   },
 });
