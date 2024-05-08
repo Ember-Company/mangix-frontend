@@ -1,4 +1,19 @@
 import { defineConfig } from "vite";
+import fs from "fs";
+
+function extractPageRoutes() {
+  let input = {};
+  const folders = fs.readdirSync("app", { withFileTypes: true });
+
+  folders.forEach((folder) => {
+    if (folder.isDirectory()) {
+      const folderName = folder.name;
+      input[folderName] = `/app/${folderName}/`;
+    }
+  });
+
+  return input;
+}
 
 export default defineConfig({
   build: {
@@ -14,16 +29,7 @@ export default defineConfig({
     },
     outDir: "dist",
     rollupOptions: {
-      input: {
-        home: "/",
-        funcionarios: "/app/funcionarios/",
-        accessPermissions: "/app/access/permissions/",
-        accessRoles: "/app/access/roles/",
-        demoPage: "/app/demo-page/",
-        loginPage: "/app/login/",
-        teste: "/app/testefodase/",
-        ponto: "/app/ponto/"
-      },
+      ...extractPageRoutes(),
     },
   },
 });
