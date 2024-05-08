@@ -25,11 +25,6 @@ export default class Sidebar {
   renderSidebar() {
     this.sidebar.innerHTML = this.routes
       .map((route, _) => {
-        console.log(
-          "submenus count: ",
-          route?.submenus.length || typeof route?.submenus
-        );
-
         return route?.submenus !== undefined
           ? this.renderDropdown(route)
           : this.renderItem(route);

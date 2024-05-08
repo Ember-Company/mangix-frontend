@@ -38,24 +38,6 @@ const main_routes = [
   },
   {
     id: 5,
-    title: "Pagina Demo",
-    icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
-    path: toPage("demo-page/"),
-  },
-  {
-    id: 6,
-    title: "Pagina Login",
-    icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
-    path: toPage("login/"),
-  },
-  {
-    id: 7,
-    title: "Pagina testerrr",
-    icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
-    path: toPage("testefodase/"),
-  },
-  {
-    id: 8,
     title: "Pontos Registrados",
     icon: '<i class="menu-icon tf-icons bx bxs-file-html"></i>',
     path: toPage("ponto/"),
@@ -65,5 +47,3 @@ const main_routes = [
 export const sidebarMapConfig = {
   main: main_routes,
 };
-
-
