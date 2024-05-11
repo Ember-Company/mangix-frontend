@@ -11,5 +11,8 @@
   "devDependencies": {
     "vite": "^5.2.8",
     "vite-plugin-pages": "^0.32.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

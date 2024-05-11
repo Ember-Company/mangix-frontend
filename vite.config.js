@@ -1,9 +1,36 @@
 import { defineConfig } from "vite";
 import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
+import { log } from "console";
+
+dotenv.config();
+
+const baseURL = process.env.VITE_APP_BASE_PREFIX || "http://localhost:5173/";
 
 async function extractPageRoutes(appDir) {
   let input = {};
+  let proxy = {};
+
+  const writeProxy = (relativePath) => {
+    return {
+      target: relativePath,
+      rewrite: async (url) => {
+        const { pathname, search } = new URL(url);
+
+        if (pathname.startsWith("/app/") && !pathname.endsWith(".html")) {
+          const routePath = pathname.replace(/^\/app\//, "");
+
+          return {
+            path: routePath,
+            search,
+          };
+        }
+
+        return undefined;
+      },
+    };
+  };
 
   const traverse = async (dir) => {
     try {
@@ -14,33 +41,46 @@ async function extractPageRoutes(appDir) {
 
         folder.isDirectory() && (await traverse(route));
 
+        const definedRoute = `/app/${path.relative(appDir, route)}/`;
+        if (definedRoute.endsWith(".html")) {
+          return;
+        }
+
         const key = folder.name.split(".")[0];
-        input[key] = path.relative(appDir, route);
+
+        input[key] = definedRoute;
+        proxy[definedRoute] = writeProxy(definedRoute);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   await traverse(appDir);
-  return input;
+  return { input, proxy };
 }
 
-export default defineConfig({
-  build: {
-    server: {
-      middlewareMode: "ssr",
-      rewrite: async (url) => {
-        const { pathname, search } = new URL(url);
-        if (pathname.startsWith("/app/") && !pathname.endsWith(".html")) {
-          return { path: "/app/index.html", search };
-        }
-        return undefined;
+async function createViteConfig() {
+  const { input, proxy } = await extractPageRoutes("app");
+
+  return defineConfig({
+    build: {
+      server: {
+        middlewareMode: "ssr",
+        proxy: {
+          ...proxy,
+          "/": {
+            target: baseURL,
+          },
+        },
+      },
+
+      outDir: "dist",
+      rollupOptions: {
+        input,
       },
     },
-    outDir: "dist",
-    rollupOptions: {
-      input: await extractPageRoutes("app"),
-    },
-  },
-});
+  });
+}
+
+export default createViteConfig();
