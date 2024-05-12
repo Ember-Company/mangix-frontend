@@ -30,8 +30,6 @@
     <link rel="stylesheet" href="/src/css/demo.css" />
     <link rel="stylesheet" href="/src/css/styles.css" />
     <link rel="stylesheet" href="/src/css/login.css" />
-    
-    
 
     <!-- Vendors CSS -->
     <link
@@ -54,31 +52,27 @@
   </head>
 
   <body>
-    
     <div class="login-container">
       <div class="card-clockin">
         <div class="options">
-          <div class="option">ADMINISTRAÇÃO</div>
-          <div class="option">COLABORADOR</div>
-          <div class="option selected">CARTÃO PONTO</div>
+          <a href="/app/login-adm/" class="option">ADMINISTRAÇÃO</a>
+          <a href="/app/login-colaborador/" class="option">COLABORADOR</a>
+          <a href="/app/bater-ponto/" class="option selected">CARTÃO PONTO</a>
         </div>
-        
+
         <div class="clock" id="clock"></div>
-  
+
         <form>
           <label for="usuario">PIN</label>
-          <input type="text" name="usuario" placeholder="PIN">
+          <input type="text" name="usuario" placeholder="PIN" />
           <label for="senha">senha</label>
-          <input type="password" name="senha" placeholder="Senha">
+          <input type="password" name="senha" placeholder="Senha" />
           <button type="submit">REGISTRAR PONTO</button>
         </form>
       </div>
     </div>
-    
 
     <script src="bater-ponto.js"></script>
-      
-    
 
     <script src="/src/vendor/libs/jquery/jquery.js"></script>
     <script src="/src/vendor/libs/popper/popper.js"></script>
