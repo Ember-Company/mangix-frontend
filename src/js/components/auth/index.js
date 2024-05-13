@@ -1,30 +1,47 @@
 import Events from "../../utils/Events.js";
 import { toPage } from "../../utils/route-builder.js";
-import { notAuthorizedScreen } from "../error-screens.js";
+import ErrorPage from "../error-screens.js";
+import { PageLoader } from "../loading.js";
 import LoginPages from "./login-pages.js";
 import SessionManager from "./session.js";
 
 export default class AuthHandler {
   constructor() {
-    this.loginRole = null;
     this.sessionManager = new SessionManager();
+
     this.currentUrl = window.location.href.split("/");
     this.navigate = (url) => window.location.assign(url);
+
     this.init();
   }
 
   async init() {
     const sessionExists = await this.sessionManager.validateSession();
 
-    if (!sessionExists && !this.isAuthPage()) {
-      notAuthorizedScreen();
-      return;
-    }
-
     if (sessionExists) {
-      !this.isHomePage() && this.navigate(toPage("dashboard"));
+      if (this.isAuthPage()) {
+        this.navigate(toPage("dashboard"));
+      }
 
-      return;
+      if (this.isHomePage()) {
+        PageLoader.hide();
+        document
+          .querySelector(".content-body div:nth-child(3)")
+          .classList.remove("hide");
+        return;
+      }
+    } else {
+      if (this.isAuthPage()) {
+        return;
+      }
+
+      if (!this.isHomePage()) {
+        ErrorPage.notAuthorized();
+        // this.errorScreen.notAuthorized();
+        return;
+      } else {
+        this.navigate(toPage("auth/login-adm"));
+      }
     }
 
     this.handleLogin();
@@ -32,7 +49,6 @@ export default class AuthHandler {
 
   handleLogin() {
     Events.$onPageLoad(() => {
-      console.log("test");
       const pageOptions = {
         adm: LoginPages.admin,
         colaborador: LoginPages.colaborador,
@@ -58,14 +74,10 @@ export default class AuthHandler {
   }
 
   isHomePage() {
-    try {
-      return (
-        !this.currentUrl[this.currentUrl.length - 1].includes("/") &&
-        !this.isAuthPage()
-      );
-    } catch (error) {
-      return false;
-    }
+    const routeEnd = this.currentUrl[this.currentUrl.length - 1];
+    // console.log(routeEnd);
+
+    return routeEnd === "" && !this.isAuthPage();
   }
 }
 

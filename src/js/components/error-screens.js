@@ -1,9 +1,8 @@
-import Events from "../utils/Events";
+import { PageLoader } from "./loading";
 
-export function notAuthorizedScreen() {
-  const container = document.querySelector(".layout-container .layout-page");
-  container.innerHTML = `
-    <div class="container-xxl container-p-y">
+const errorContainer = document.querySelector(".error");
+
+const notAuthorizedHtml = `<div class="container-xxl container-p-y">
       <div class="misc-wrapper">
         <h2 class="mb-2 mx-2">You are not authorized!</h2>
         <p class="mb-4 mx-2">
@@ -25,4 +24,11 @@ export function notAuthorizedScreen() {
       </div>
     </div> 
   `;
+
+export default class ErrorPage {
+  static notAuthorized() {
+    PageLoader.hide();
+    errorContainer.classList.remove("hide");
+    errorContainer.innerHTML = notAuthorizedHtml;
+  }
 }
