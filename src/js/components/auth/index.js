@@ -15,33 +15,31 @@ export default class AuthHandler {
     this.init();
   }
 
-  init() {
-    Events.$onPageLoad(async () => {
-      const sessionExists = await this.sessionManager.validateSession();
+  async init() {
+    const sessionExists = await this.sessionManager.validateSession();
 
-      if (sessionExists) {
-        if (!this.isAuthPage() || !this.isHomePage()) {
-          PageLoader.disable();
+    if (sessionExists) {
+      if (!this.isAuthPage() || !this.isHomePage()) {
+        PageLoader.disable();
 
-          document
-            .querySelector(".content-body div:nth-child(3)")
-            .classList.remove("hide");
+        document
+          .querySelector(".content-body div:nth-child(3)")
+          .classList.remove("hide");
 
-          return;
-        }
-
-        this.navigate(toPage("dashboard"));
-      } else {
-        if (!this.isHomePage() && !this.isAuthPage()) {
-          ErrorPage.notAuthorized();
-          return;
-        }
-
-        !this.isAuthPage() && this.navigate(toPage("auth/login-adm"));
+        return;
       }
 
-      this.handleLogin();
-    });
+      this.navigate(toPage("dashboard"));
+    } else {
+      if (!this.isHomePage() && !this.isAuthPage()) {
+        ErrorPage.notAuthorized();
+        return;
+      }
+
+      !this.isAuthPage() && this.navigate(toPage("auth/login-adm"));
+    }
+
+    this.handleLogin();
   }
 
   handleLogin() {
@@ -72,4 +70,6 @@ export default class AuthHandler {
   }
 }
 
-new AuthHandler();
+Events.$onPageLoad(() => {
+  new AuthHandler();
+});
