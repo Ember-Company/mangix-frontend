@@ -18,9 +18,9 @@ export default class AuthHandler {
     const sessionExists = await this.sessionManager.validateSession();
 
     if (sessionExists) {
-      if (!this.isAuthPage() || !this.isHomePage()) {
+      if (!this.isAuthPage() && !this.isHomePage()) {
         PageLoader.disable();
-
+        console.log("teste")
         document
           .querySelector(".content-body div:nth-child(3)")
           .classList.remove("hide");
