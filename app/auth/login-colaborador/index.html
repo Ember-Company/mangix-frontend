@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Login Adm</title>
+    <title>Login Colaborador</title>
 
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -45,23 +45,27 @@
     <!-- Page CSS -->
 
     <!-- Helpers -->
+
+    <script src="/src/js/components/auth/index.js" type="module" defer></script>
     <script src="/src/vendor/js/helpers.js"></script>
     <script src="/src/vendor/js/template-customizer.js"></script>
     <script src="/src/js/config/theme-config.js"></script>
-    <script src="/src/js/_base.js" type="module"></script>
+    <!-- <script src="/src/js/_base.js" type="module"></script> -->
   </head>
 
   <body>
     <div class="login-container">
       <div class="card">
         <div class="options">
-          <a href="/app/login-adm/" class="option selected">ADMINISTRAÇÃO </a>
-          <a href="/app/login-colaborador/" class="option">COLABORADOR </a>
-          <a href="/app/bater-ponto/" class="option">CARTÃO PONTO</a>
+          <a href="/app/auth/login-adm/" class="option">ADMINISTRAÇÃO </a>
+          <a href="/app/auth/login-colaborador/" class="option selected"
+            >COLABORADOR
+          </a>
+          <a href="/app/auth/bater-ponto/" class="option">CARTÃO PONTO</a>
         </div>
         <form>
-          <label for="usuario">e-mail</label>
-          <input type="text" name="usuario" placeholder="e-mail" />
+          <label for="usuario">PIN</label>
+          <input type="text" name="usuario" placeholder="PIN" />
           <label for="senha">senha</label>
           <input type="password" name="senha" placeholder="Senha" />
           <button type="submit">ENTRAR</button>
@@ -75,6 +79,5 @@
     <script src="/src/vendor/js/menu.js"></script>
 
     <script src="/src/js/main.js"></script>
-    <script src="/src/js/components/auth/index.js" type="module"></script>
   </body>
 </html>

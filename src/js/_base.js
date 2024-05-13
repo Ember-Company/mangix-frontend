@@ -1,8 +1,15 @@
+import AuthHandler from "./components/auth/index.js";
 import Sidebar from "./components/sidebar.js";
+import Events from "./utils/Events.js";
 
-export function init() {
+// new AuthHandler();
+
+function init() {
   // initilize all components
   new Sidebar();
 }
 
-window.addEventListener("DOMContentLoaded", init);
+Events.$onPageLoad(() => {
+  console.log("app started");
+  init();
+});
