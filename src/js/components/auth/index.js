@@ -25,6 +25,7 @@ export default class AuthHandler {
         document
           .querySelector(".content-body div:nth-child(3)")
           .classList.remove("hide");
+
         return;
       }
 
@@ -42,29 +43,22 @@ export default class AuthHandler {
   }
 
   handleLogin() {
-    Events.$onPageLoad(() => {
-      const pageOptions = {
-        adm: LoginPages.admin,
-        colaborador: LoginPages.colaborador,
-        ponto: LoginPages.ponto,
-      };
+    const currentLocation = this.currentUrl[5];
+    const pageOptions = {
+      adm: LoginPages.admin,
+      colaborador: LoginPages.colaborador,
+      ponto: LoginPages.ponto,
+    };
 
-      const currentLocation = this.currentUrl[5];
-
-      for (const [key, action] of Object.entries(pageOptions)) {
-        if (currentLocation.includes(key)) {
-          action();
-        }
+    for (const [key, action] of Object.entries(pageOptions)) {
+      if (currentLocation.includes(key)) {
+        action();
       }
-    });
+    }
   }
 
   isAuthPage() {
-    try {
-      return this.currentUrl[4].includes("auth");
-    } catch (error) {
-      return false;
-    }
+    return this.currentUrl[4].includes("auth");
   }
 
   isHomePage() {
