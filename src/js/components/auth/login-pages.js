@@ -6,16 +6,25 @@ export default class LoginPages {
     const email=document.getElementById("email")
     const password=document.getElementById("password")
     const button=document.getElementById("button")
+    const errorLogin=document.getElementById("authError")
 
     console.log(email)
-    if (email.value===''|| password.value=== ''){
-      return
-    }
+    
 
     button.addEventListener ("click", async(e)=>{
       e.preventDefault()
-      const data= await loginAdmin (email.value, password.value)
-      console.log(data)
+      if (email.value===''|| password.value=== ''){
+        return
+      }
+      const {data,error}= await loginAdmin (email.value, password.value)
+      if(error){
+        console.log(errorLogin)
+        errorLogin.classList.remove ("hide")
+        if (error.name === 'AuthApiError'){
+          errorLogin.innerText = "Login/Senha invalido"
+        }
+      }
+      console.log(error)
     })
 
     console.log("Admin Login Page");

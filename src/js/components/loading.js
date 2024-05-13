@@ -1,6 +1,10 @@
 export class PageLoader {
   static disable() {
-    document.querySelector(".loading").classList.add("hide");
+    
+    const loader=document.querySelector(".loading")
+    if (loader) return
+
+    loader.classList.add("hide");
   }
 
   static enable() {

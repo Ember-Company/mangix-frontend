@@ -50,6 +50,7 @@
 
   <body>
     <div class="login-container">
+      <div class="loading"></div>
       <div class="card">
         <div class="options">
           <a href="/app/auth/login-adm/" class="option selected"
@@ -60,9 +61,12 @@
         </div>
         <form>
           <label for="usuario">e-mail</label>
-          <input id="email" type="text" name="usuario" placeholder="e-mail" />
+          <input id="email" type="email" name="usuario" placeholder="e-mail" />
           <label for="senha">senha</label>
           <input id="password" type="password" name="senha" placeholder="Senha" />
+          <p class="hide error" id="authError">
+            
+          </p>
           <button id="button" type="submit">ENTRAR</button>
         </form>
       </div>
