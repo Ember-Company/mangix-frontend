@@ -19,29 +19,23 @@ export default class AuthHandler {
     const sessionExists = await this.sessionManager.validateSession();
 
     if (sessionExists) {
-      if (this.isAuthPage()) {
-        this.navigate(toPage("dashboard"));
-      }
-
-      if (this.isHomePage()) {
+      if (!this.isAuthPage() || !this.isHomePage()) {
         PageLoader.hide();
+
         document
           .querySelector(".content-body div:nth-child(3)")
           .classList.remove("hide");
         return;
       }
+
+      this.navigate(toPage("dashboard"));
     } else {
-      if (this.isAuthPage()) {
+      if (!this.isHomePage() && !this.isAuthPage()) {
+        ErrorPage.notAuthorized();
         return;
       }
 
-      if (!this.isHomePage()) {
-        ErrorPage.notAuthorized();
-        // this.errorScreen.notAuthorized();
-        return;
-      } else {
-        this.navigate(toPage("auth/login-adm"));
-      }
+      !this.isAuthPage() && this.navigate(toPage("auth/login-adm"));
     }
 
     this.handleLogin();
@@ -75,8 +69,6 @@ export default class AuthHandler {
 
   isHomePage() {
     const routeEnd = this.currentUrl[this.currentUrl.length - 1];
-    // console.log(routeEnd);
-
     return routeEnd === "" && !this.isAuthPage();
   }
 }
