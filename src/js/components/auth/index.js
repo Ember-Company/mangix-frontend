@@ -4,13 +4,12 @@ import { PageLoader } from "../loading.js";
 import LoginPages from "./login-pages.js";
 import SessionManager from "./session.js";
 import Events from "./../../utils/Events.js";
+import { navigate } from "../../utils/navigate.js";
 
 export default class AuthHandler {
   constructor() {
     this.sessionManager = new SessionManager();
-
     this.currentUrl = window.location.href.split("/");
-    this.navigate = (url) => window.location.assign(url);
 
     this.init();
   }
@@ -29,14 +28,14 @@ export default class AuthHandler {
         return;
       }
 
-      this.navigate(toPage("dashboard"));
+      navigate(toPage("dashboard"));
     } else {
       if (!this.isHomePage() && !this.isAuthPage()) {
         ErrorPage.notAuthorized();
         return;
       }
 
-      !this.isAuthPage() && this.navigate(toPage("auth/login-adm"));
+      !this.isAuthPage() && navigate(toPage("auth/login-adm"));
     }
 
     this.handleLogin();
