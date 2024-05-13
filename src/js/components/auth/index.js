@@ -1,9 +1,9 @@
-import Events from "../../utils/Events.js";
 import { toPage } from "../../utils/route-builder.js";
 import ErrorPage from "../error-screens.js";
 import { PageLoader } from "../loading.js";
 import LoginPages from "./login-pages.js";
 import SessionManager from "./session.js";
+import Events from "./../../utils/Events.js";
 
 export default class AuthHandler {
   constructor() {
@@ -15,31 +15,33 @@ export default class AuthHandler {
     this.init();
   }
 
-  async init() {
-    const sessionExists = await this.sessionManager.validateSession();
+  init() {
+    Events.$onPageLoad(async () => {
+      const sessionExists = await this.sessionManager.validateSession();
 
-    if (sessionExists) {
-      if (!this.isAuthPage() || !this.isHomePage()) {
-        PageLoader.hide();
+      if (sessionExists) {
+        if (!this.isAuthPage() || !this.isHomePage()) {
+          PageLoader.disable();
 
-        document
-          .querySelector(".content-body div:nth-child(3)")
-          .classList.remove("hide");
+          document
+            .querySelector(".content-body div:nth-child(3)")
+            .classList.remove("hide");
 
-        return;
+          return;
+        }
+
+        this.navigate(toPage("dashboard"));
+      } else {
+        if (!this.isHomePage() && !this.isAuthPage()) {
+          ErrorPage.notAuthorized();
+          return;
+        }
+
+        !this.isAuthPage() && this.navigate(toPage("auth/login-adm"));
       }
 
-      this.navigate(toPage("dashboard"));
-    } else {
-      if (!this.isHomePage() && !this.isAuthPage()) {
-        ErrorPage.notAuthorized();
-        return;
-      }
-
-      !this.isAuthPage() && this.navigate(toPage("auth/login-adm"));
-    }
-
-    this.handleLogin();
+      this.handleLogin();
+    });
   }
 
   handleLogin() {
@@ -58,12 +60,15 @@ export default class AuthHandler {
   }
 
   isAuthPage() {
-    return this.currentUrl[4].includes("auth");
+    try {
+      return this.currentUrl[4].includes("auth");
+    } catch (error) {
+      return false;
+    }
   }
 
   isHomePage() {
-    const routeEnd = this.currentUrl[this.currentUrl.length - 1];
-    return routeEnd === "" && !this.isAuthPage();
+    return this.currentUrl.length < 5;
   }
 }
 

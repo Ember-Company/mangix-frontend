@@ -25,8 +25,8 @@ export default class Events {
   static $onPageLoad(callback) {
     if (!callback) console.error("provide a callback");
 
-    document.addEventListener("DOMContentLoaded", (e) => {
-      callback(e);
+    document.addEventListener("DOMContentLoaded", async (e) => {
+      await callback(e);
     });
   }
 

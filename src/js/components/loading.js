@@ -1,9 +1,9 @@
 export class PageLoader {
-  static hide() {
+  static disable() {
     document.querySelector(".loading").classList.add("hide");
   }
 
-  static show() {
+  static enable() {
     document.querySelector(".loading").classList.remove("hide");
   }
 }

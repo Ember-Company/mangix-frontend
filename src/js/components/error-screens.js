@@ -27,7 +27,7 @@ const notAuthorizedHtml = `<div class="container-xxl container-p-y">
 
 export default class ErrorPage {
   static notAuthorized() {
-    PageLoader.hide();
+    PageLoader.disable();
     errorContainer.classList.remove("hide");
     errorContainer.innerHTML = notAuthorizedHtml;
   }

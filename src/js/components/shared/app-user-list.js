@@ -2,15 +2,10 @@
 
 $(function () {
   let borderColor, bodyBg, headingColor;
-  if (isDarkStyle) {
-    borderColor = config.colors_dark.borderColor;
-    bodyBg = config.colors_dark.bodyBg;
-    headingColor = config.colors_dark.headingColor;
-  } else {
-    borderColor = config.colors.borderColor;
-    bodyBg = config.colors.bodyBg;
-    headingColor = config.colors.headingColor;
-  }
+
+  borderColor = config.colors.borderColor;
+  bodyBg = config.colors.bodyBg;
+  headingColor = config.colors.headingColor;
 
   const datatablesUsers = $(".datatables-users");
   const select2 = $(".select2");
@@ -386,32 +381,32 @@ $(function () {
               });
           });
 
-        this.api()
-          .columns(4)
-          .every(function () {
-            const column = this;
-            console.log(this);
-            const select = $(
-              '<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Filtrar por status </option></select>'
-            )
-              .appendTo(".user_status")
-              .on("change", function () {
-                const value = $.fn.dataTable.util.escapeRegex($(this).val());
-                column
-                  .search(value ? "^" + value + "$" : "", true, false)
-                  .draw();
-              });
+        // this.api()
+        //   .columns(4)
+        //   .every(function () {
+        //     const column = this;
+        //     console.log(this);
+        //     const select = $(
+        //       '<select id="FilterTransaction" class="form-select text-capitalize"><option value=""> Filtrar por status </option></select>'
+        //     )
+        //       .appendTo(".user_status")
+        //       .on("change", function () {
+        //         const value = $.fn.dataTable.util.escapeRegex($(this).val());
+        //         column
+        //           .search(value ? "^" + value + "$" : "", true, false)
+        //           .draw();
+        //       });
 
-            column
-              .data()
-              .unique()
-              .sort()
-              .each(function (value, index) {
-                select.append(
-                  `<option value="${statusLabels[value].title}" class="text-capitalize">${statusLabels[value].title}</option>`
-                );
-              });
-          });
+        //     column
+        //       .data()
+        //       .unique()
+        //       .sort()
+        //       .each(function (value, index) {
+        //         select.append(
+        //           `<option value="${statusLabels[value].title}" class="text-capitalize">${statusLabels[value].title}</option>`
+        //         );
+        //       });
+        //   });
       },
     });
 
