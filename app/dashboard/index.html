@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>User List - Mangix</title>
+    <title>Dashboard</title>
 
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -25,14 +25,8 @@
     <link rel="stylesheet" href="/src/vendor/fonts/flag-icons.css" />
 
     <!-- Core CSS -->
-    <link
-      rel="stylesheet"
-      href="/src/vendor/css/rtl/core.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/src/vendor/css/rtl/theme-default.css"
-    />
+    <link rel="stylesheet" href="/src/vendor/css/rtl/core.css" />
+    <link rel="stylesheet" href="/src/vendor/css/rtl/theme-default.css" />
     <link rel="stylesheet" href="/src/css/styles.css" />
 
     <!-- Vendors CSS -->
@@ -40,34 +34,17 @@
       rel="stylesheet"
       href="/src/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
     />
+    <link rel="stylesheet" href="/src/vendor/libs/typeahead-js/typeahead.css" />
     <link
       rel="stylesheet"
-      href="/src/vendor/libs/typeahead-js/typeahead.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/src/vendor/libs/datatables-bs5/datatables.bootstrap5.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/src/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css"
-    />
-    <link
-      rel="stylesheet"
-      href="/src/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css"
-    />
-    <link rel="stylesheet" href="/src/vendor/libs/select2/select2.css" />
-    <link
-      rel="stylesheet"
-      href="/src/vendor/libs/@form-validation/umd/styles/index.min.css"
+      href="/src/vendor/libs/apex-charts/apex-charts.css"
     />
 
-    <!-- Helpers -->
+    <!-- Page CSS -->
+
+    <script src="/src/js/components/auth/index.js" type="module"></script>
     <!-- <script src="/src/vendor/js/helpers.js"></script> -->
     <!-- <script src="/src/vendor/js/template-customizer.js"></script> -->
-
-    <script src="/src/js/_base.js" type="module"></script>
-    <script src="/src/js/components/auth/index.js" type="module"></script>
     <script src="/src/js/config/theme-config.js"></script>
   </head>
 
@@ -82,8 +59,9 @@
           class="layout-menu menu-vertical menu bg-menu-theme"
         >
           <div class="app-brand demo">
-            <a href="/index.html" class="app-brand-link">
-              <!-- LOGO SVG aqui -->
+            <a href="index.html" class="app-brand-link">
+              <span class="app-brand-logo demo">
+                <!-- LOGO SVG Aqui -->
               </span>
               <span class="app-brand-text demo menu-text fw-bold ms-2"
                 >Mangix</span
@@ -100,9 +78,7 @@
 
           <div class="menu-inner-shadow"></div>
 
-          <ul class="menu-inner py-1" id="main" data-id="2">
-             <!-- NAVIGATION LINKS HERE  -->
-          </ul>
+          <ul class="menu-inner py-1" id="main" data-id="1"></ul>
         </aside>
         <!-- / Menu -->
 
@@ -861,8 +837,8 @@
               <input
                 type="text"
                 class="form-control search-input container-xxl border-0"
-                placeholder="Pesquisar nome, cpf ou pin"
-                aria-label="Pesquisar nome, cpf ou pin"
+                placeholder="Search..."
+                aria-label="Search..."
               />
               <i class="bx bx-x bx-sm search-toggler cursor-pointer"></i>
             </div>
@@ -871,165 +847,72 @@
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
-
+          <div class="content-wrapper test">
             <div class="container-xxl flex-grow-1 container-p-y text-center">
-<!-- Loading State -->
+              <!-- Loading State -->
               <div class="loading">loading...</div>
 
               <!-- Error State -->
               <div class="error hide"></div>
 
-              <!-- Users List Table -->
-              <div class="card hide content-body">
-                <div class="card-header border-bottom">
-                  <h5 class="card-title">Search Filter</h5>
-                  <div
-                    class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0"
-                  >
-                    <div class="col-md-4 user_role"></div>
-                    <!-- <div class="col-md-4 user_status"></div> -->
-                  </div>
+              <div class="row mb-5 hide content-body">
+                <div class="col-md-6 col-lg-3 mb-3">
+                  <a class="card h-100 py-5 d-block hover-scale">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <i class="bx bx-user" style="font-size: 3rem"></i>
+                      </h4>
+                      <h3 class="card-text">Funcionários</h3>
+                    </div>
+                  </a>
                 </div>
-                <div class="card-datatable table-responsive">
-                  <table class="datatables-users table border-top">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>User</th>
-                        <th>Role</th>
-                        <th>CPF</th>
-                        <!-- <th>Status</th> -->
-                        <th>Pin</th>
-                        <th>Action</th>
-                    </thead>
-                  </table>
+                <div class="col-md-6 col-lg-3 mb-3">
+                  <a class="card h-100 py-5 d-block hover-scale">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <i
+                          class="bx bx-alarm-exclamation"
+                          style="font-size: 3rem"
+                        ></i>
+                      </h4>
+                      <h3 class="card-text">Pontos Registrados</h3>
+                    </div>
+                  </a>
                 </div>
-                <!-- Offcanvas to add new user -->
-                <div
-                  class="offcanvas offcanvas-end"
-                  tabindex="-1"
-                  id="offcanvasAddUser"
-                  aria-labelledby="offcanvasAddUserLabel"
-                >
-                  <div class="offcanvas-header">
-                    <h5 id="offcanvasAddUserLabel" class="offcanvas-title">
-                      Add User
-                    </h5>
-                    <button
-                      type="button"
-                      class="btn-close text-reset"
-                      data-bs-dismiss="offcanvas"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="offcanvas-body mx-0 flex-grow-0">
-                    <form
-                      class="add-new-user pt-0"
-                      id="addNewUserForm"
-                      onsubmit="return false"
-                    >
-                      <div class="mb-3">
-                        <label class="form-label" for="add-user-fullname"
-                          >Full Name</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="add-user-fullname"
-                          placeholder="John Doe"
-                          name="userFullname"
-                          aria-label="John Doe"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label" for="add-user-email"
-                          >Email</label
-                        >
-                        <input
-                          type="text"
-                          id="add-user-email"
-                          class="form-control"
-                          placeholder="john.doe@example.com"
-                          aria-label="john.doe@example.com"
-                          name="userEmail"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label" for="add-user-contact"
-                          >Contact</label
-                        >
-                        <input
-                          type="text"
-                          id="add-user-contact"
-                          class="form-control phone-mask"
-                          placeholder="+1 (609) 988-44-11"
-                          aria-label="john.doe@example.com"
-                          name="userContact"
-                        />
-                      </div>
-                      <div class="mb-3 d-flex column-gap-2">
-                        <div class="form-group">
-                          <label class="form-label" for="add-user-cpf"
-                          >CPF</label
-                        >
-                        <input
-                          type="number"
-                          id="add-user-cpf"
-                          class="form-control"
-                          placeholder=""
-                          aria-label="CPF"
-                          name="CPF"
-                        />
-                        </div> 
-                        <div class="form-group">
-                          <label class="form-label" for="add-user-pin"
-                          >PIN</label
-                        >
-                        <input
-                          type="number"
-                          id="add-user-pin"
-                          class="form-control"
-                          placeholder=""
-                          aria-label="PIN"
-                          name="PIN"
-                        />
-                        </div> 
-                      </div>
-                      <div class="mb-3">
-                        <label class="form-label" for="user-role"
-                          >User Role</label
-                        >
-                        <select id="user-role" class="form-select">
-                          <option value="Admin">Admin</option>
-                          <option value="Funcionario">Funcionario</option>
-                        </select>
-                      </div>
-                      <button
-                        type="submit"
-                        class="btn btn-primary me-sm-3 me-1 data-submit"
-                      >
-                        Submit
-                      </button>
-                      <button
-                        type="reset"
-                        class="btn btn-label-secondary"
-                        data-bs-dismiss="offcanvas"
-                      >
-                        Cancel
-                      </button>
-                    </form>
-                  </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                  <a class="card h-100 py-5 d-block hover-scale">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <i
+                          class="bx bx-check-circle"
+                          style="font-size: 3rem"
+                        ></i>
+                      </h4>
+                      <h3 class="card-text">Horas extras</h3>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-3">
+                  <a class="card h-100 py-5 d-block hover-scale">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <i
+                          class="bx bx-notification"
+                          style="font-size: 3rem"
+                        ></i>
+                      </h4>
+                      <h3 class="card-text">Solicitações</h3>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
+
+            <!-- Content -->
             <!-- / Content -->
 
             <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              
-            </footer>
+            <footer class="content-footer footer bg-footer-theme"></footer>
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>
@@ -1047,9 +930,7 @@
     </div>
     <!-- / Layout wrapper -->
 
-
     <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
 
     <script src="/src/vendor/libs/jquery/jquery.js"></script>
     <script src="/src/vendor/libs/popper/popper.js"></script>
@@ -1058,25 +939,21 @@
     <script src="/src/vendor/libs/hammer/hammer.js"></script>
     <script src="/src/vendor/libs/i18n/i18n.js"></script>
     <script src="/src/vendor/libs/typeahead-js/typeahead.js"></script>
+
     <script src="/src/vendor/js/menu.js"></script>
 
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="/src/vendor/libs/moment/moment.js"></script>
-    <script src="/src/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
-    <script src="/src/vendor/libs/select2/select2.js"></script>
-    <script src="/src/vendor/libs/@form-validation/umd/bundle/popular.min.js"></script>
-    <script src="/src/vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
-    <script src="/src/vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js"></script>
-    <script src="/src/vendor/libs/cleavejs/cleave.js"></script>
-    <script src="/src/vendor/libs/cleavejs/cleave-phone.js"></script>
+    <script src="/src/vendor/libs/apex-charts/apexcharts.js"></script>
 
     <!-- Main JS -->
     <!-- <script src="/src/js/main.js"></script> -->
 
-    <!-- Page JS -->
-    <script src="/src/js/components/shared/app-user-list.js"></script>
-  </body>
+    <script src="/src/js/_base.js" type="module"></script>
 
+    <!-- Page JS -->
+
+    <script src="/src/js/components/shared/dashboards-analytics.js"></script>
+  </body>
 </html>

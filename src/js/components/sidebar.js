@@ -1,21 +1,34 @@
 import { sidebarMapConfig } from "../config/sidebar-config.js";
+import { logout } from "../services/auth.js";
+import Events from "../utils/Events.js";
+import { toPage } from "../utils/route-builder.js";
 
 export default class Sidebar {
   constructor() {
     this.routes = sidebarMapConfig[import.meta.env.VITE_APP_LAYOUT];
-    this.sidebar = document.querySelector(".menu-inner");
+    this.sidebar = document.querySelector(".menu-inner") ?? null;
 
-    this.activeId = this.sidebar.dataset.id;
+    this.activeId = this.sidebar?.dataset.id;
     this.renderSidebar().handleNavigation();
   }
 
   handleNavigation() {
-    this.sidebar.addEventListener("click", (e) => {
+    if (!this.sidebar) return;
+
+    Events.$click(this.sidebar, async (e) => {
       e.preventDefault();
       const target = e.target.closest("a");
 
       if (target) {
         const path = target.getAttribute("href");
+        const isLogoutAction = target.id === "Logout" ? true : false;
+
+        if (isLogoutAction) {
+          const res = await logout();
+
+          console.log(res);
+          window.location.assign(toPage("auth/login-adm"));
+        }
 
         path && window.location.assign(path);
       }
@@ -23,6 +36,8 @@ export default class Sidebar {
   }
 
   renderSidebar() {
+    if (!this.sidebar) return this;
+
     this.sidebar.innerHTML = this.routes
       .map((route, _) => {
         return route?.submenus !== undefined
@@ -34,7 +49,7 @@ export default class Sidebar {
     return this;
   }
 
-  renderItem({ id, title, icon, path, header }, active = false) {
+  renderItem({ id, title, icon, path, header, action }, active = false) {
     const elemIsActive = active || this.isActive(id);
 
     if (header) {
@@ -48,8 +63,10 @@ export default class Sidebar {
     }
 
     return `
-      <li class="menu-item ${elemIsActive ? "active" : ""}">
-          <a href="${path ?? "#"}" class="menu-link">
+      <li class="menu-item ${elemIsActive ? "active" : ""}" >
+          <a href="${path ?? "#"}" class="menu-link" id='${
+      action ? title : ""
+    }'>
             ${icon ?? ""}
             <div class="text-truncate" data-i18n="${title}">
               ${title}

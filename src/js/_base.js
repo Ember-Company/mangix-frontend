@@ -1,8 +1,10 @@
 import Sidebar from "./components/sidebar.js";
+import Events from "./utils/Events.js";
 
-export function init() {
-  // initilize all components
+function init() {
   new Sidebar();
 }
 
-window.addEventListener("DOMContentLoaded", init);
+Events.$onPageLoad(() => {
+  init();
+});
