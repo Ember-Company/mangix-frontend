@@ -1,7 +1,9 @@
 import { sidebarMapConfig } from "../config/sidebar-config.js";
 import { logout } from "../services/auth.js";
 import Events from "../utils/Events.js";
+import { navigate } from "../utils/navigate.js";
 import { toPage } from "../utils/route-builder.js";
+import { PageLoader } from "./loading.js";
 
 export default class Sidebar {
   constructor() {
@@ -16,7 +18,6 @@ export default class Sidebar {
     if (!this.sidebar) return;
 
     Events.$click(this.sidebar, async (e) => {
-      e.preventDefault();
       const target = e.target.closest("a");
 
       if (target) {
@@ -24,13 +25,13 @@ export default class Sidebar {
         const isLogoutAction = target.id === "Logout" ? true : false;
 
         if (isLogoutAction) {
-          const res = await logout();
+          PageLoader.enable();
+          await logout();
 
-          console.log(res);
-          window.location.assign(toPage("auth/login-adm"));
+          navigate(toPage("auth/login-adm"));
         }
 
-        path && window.location.assign(path);
+        path && navigate(path);
       }
     });
   }

@@ -40,11 +40,11 @@ export default class AuthHandler {
 
   handleLogin() {
     const currentLocation = this.currentUrl[5];
-    const pageOptions = {
+    const pageOptions = Object.freeze({
       adm: LoginPages.admin,
       colaborador: LoginPages.colaborador,
       ponto: LoginPages.ponto,
-    };
+    });
 
     for (const [key, action] of Object.entries(pageOptions)) {
       if (currentLocation.includes(key)) {
