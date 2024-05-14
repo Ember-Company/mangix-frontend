@@ -7,8 +7,13 @@ export class PageLoader {
   }
 
   static enable() {
-    document.querySelector(".content-body").classList.add("hide");
-    document.querySelector(".error").classList.add("hide");
-    document.querySelector(".loading").classList.remove("hide");
+    try {
+      document.querySelector(".content-body").classList.add("hide");
+      document.querySelector(".error").classList.add("hide");
+      document.querySelector(".loading").classList.remove("hide");
+    } catch (error) {
+      console.error("Custom error: This page does not have a loader to enable");
+      return;
+    }
   }
 }
