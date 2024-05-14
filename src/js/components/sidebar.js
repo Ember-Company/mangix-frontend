@@ -2,6 +2,7 @@ import { sidebarMapConfig } from "../config/sidebar-config.js";
 import { logout } from "../services/auth.js";
 import Events from "../utils/Events.js";
 import { toPage } from "../utils/route-builder.js";
+import { PageLoader } from "./loading.js";
 
 export default class Sidebar {
   constructor() {
@@ -24,9 +25,9 @@ export default class Sidebar {
         const isLogoutAction = target.id === "Logout" ? true : false;
 
         if (isLogoutAction) {
-          const res = await logout();
+          PageLoader.enable();
+          await logout();
 
-          console.log(res);
           window.location.assign(toPage("auth/login-adm"));
         }
 

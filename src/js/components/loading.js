@@ -7,6 +7,8 @@ export class PageLoader {
   }
 
   static enable() {
+    document.querySelector(".content-body").classList.add("hide");
+    document.querySelector(".error").classList.add("hide");
     document.querySelector(".loading").classList.remove("hide");
   }
 }
