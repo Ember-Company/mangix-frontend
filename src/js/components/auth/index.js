@@ -20,11 +20,8 @@ export default class AuthHandler {
     if (sessionExists) {
       if (!this.isAuthPage() && !this.isHomePage()) {
         PageLoader.disable();
-        console.log("teste")
-        document
-          .querySelector(".content-body div:nth-child(3)")
-          .classList.remove("hide");
 
+        document.querySelector(".content-body").classList.remove("hide");
         return;
       }
 

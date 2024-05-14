@@ -39,11 +39,9 @@ export default class Events {
   static $click(targetElement = document, callback) {
     // if (!callback) throw new EventError("A callback function must be provided");
 
-    targetElement.addEventListener("click", async  (e)=> {
-      e.preventDefault ()
+    targetElement.addEventListener("click", async (e) => {
+      e.preventDefault();
       await callback(e);
-
-     
     });
   }
 
